@@ -13,12 +13,12 @@ body, html,
   color: var(--umi-fg);
 }
 
-/* ── friend list panel (cream parchment, matches reference's chat area) ─ */
+/* ── friend list panel (dark graphite terminal, matches reference's chat area) ─ */
 
 .friendlist,
 [class*="friendlist"] {
-  background: var(--umi-surface-cream);
-  color: var(--umi-text-dark);
+  background: var(--umi-surface-panel);
+  color: var(--umi-fg);
   box-shadow: var(--border-content);
   border-radius: var(--umi-radius);
   padding: var(--umi-pad-sm);
@@ -30,7 +30,7 @@ body, html,
 [class*="friendslist_Friend"],
 [class*="friendsui_FriendListItem"] {
   background: transparent;
-  color: var(--umi-text-dark);
+  color: var(--umi-fg);
   border: 1px solid transparent;
   border-radius: var(--umi-radius-sm);
   padding: 3px 6px;
@@ -51,7 +51,7 @@ body, html,
 [class*="friendslist_Friend"][aria-selected="true"] {
   background:
     var(--umi-noise),
-    linear-gradient(180deg, var(--umi-accent) 0%, var(--umi-accent-2) 100%) !important;
+    linear-gradient(180deg, #ff6700 0%, #7a2600 100%) !important;
   color: var(--umi-cream) !important;
   border: 1px solid var(--umi-accent-soft) !important;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
@@ -93,7 +93,7 @@ body, html,
 [class*="friendsui_StatusIcon"][class*="ingame"] + [class*="label"],
 [class*="friendslist_Game"] {
   background-image: var(--umi-hazard) !important;
-  color: #ffffff !important;
+  color: var(--umi-cream) !important;
   padding: 1px 6px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
   box-shadow: var(--border-button-raised);
@@ -117,7 +117,7 @@ body, html,
 [class*="chatRoomTextChannel"][class*="Active"] {
   background:
     var(--umi-noise),
-    linear-gradient(180deg, var(--umi-accent) 0%, var(--umi-accent-2) 100%) !important;
+    linear-gradient(180deg, #ff6700 0%, #7a2600 100%) !important;
   color: var(--umi-cream) !important;
   border: 1px solid var(--umi-accent-soft) !important;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
@@ -142,8 +142,8 @@ body, html,
 
 [class*="chat_TheirMessage"],
 [class*="chat_chat_message"]:not([class*="my"]) {
-  background: var(--umi-surface-cream) !important;
-  color: var(--umi-text-dark) !important;
+  background: var(--umi-surface-panel) !important;
+  color: var(--umi-fg) !important;
   box-shadow: var(--border-content) !important;
   border: none !important;
   border-radius: var(--umi-radius) !important;
@@ -154,7 +154,7 @@ body, html,
 [class*="chat_chat_message"][class*="my"] {
   background:
     var(--umi-noise),
-    linear-gradient(180deg, var(--umi-accent) 0%, var(--umi-accent-2) 100%) !important;
+    linear-gradient(180deg, #ff6700 0%, #7a2600 100%) !important;
   color: var(--umi-cream) !important;
   box-shadow: var(--border-button-raised) !important;
   border: none !important;
@@ -168,8 +168,8 @@ body, html,
 [class*="chat_InputContainer"] textarea,
 [class*="chat_InputContainer"] input,
 [class*="ChatRoomTextEntryComposer"] textarea {
-  background: var(--umi-surface-cream) !important;
-  color: var(--umi-text-dark) !important;
+  background: var(--umi-surface-panel) !important;
+  color: var(--umi-fg) !important;
   box-shadow: var(--border-field) !important;
   border: none !important;
   border-radius: var(--umi-radius) !important;
@@ -190,8 +190,8 @@ body, html,
 
 [class*="friendslist_SearchInput"],
 [class*="friendsui_SearchBox"] input {
-  background: var(--umi-surface-cream) !important;
-  color: var(--umi-text-dark) !important;
+  background: var(--umi-surface-panel) !important;
+  color: var(--umi-fg) !important;
   box-shadow: var(--border-field) !important;
   border: none !important;
   border-radius: var(--umi-radius) !important;

@@ -11,12 +11,12 @@ body, html,
   color: var(--umi-fg);
 }
 
-/* ── tile grid (game library cards) — cream surface with raised bevel ── */
+/* ── tile grid (game library cards) — dark inset surface with raised bevel ── */
 
 [class*="library_GameTile"],
 [class*="bigpicture_Tile"],
 [class*="basicgrid_Tile"] {
-  background: var(--umi-surface-cream);
+  background: var(--umi-surface-panel);
   box-shadow: var(--border-button-raised);
   border-radius: var(--umi-radius);
   overflow: hidden;
@@ -48,7 +48,7 @@ body, html,
 [class*="bigpicture_NavTab"][class*="Selected"],
 [class*="bigpicture_NavTab"][data-selected="true"] {
   background-image: var(--umi-hazard) !important;
-  color: #ffffff !important;
+  color: var(--umi-cream) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
   box-shadow: var(--border-button-sunken);
   border-radius: var(--umi-radius);
@@ -76,7 +76,7 @@ button[class*="Primary"],
 [class*="bigpicture_PrimaryButton"] {
   background-image: var(--umi-hazard) !important;
   background-color: var(--umi-accent) !important;
-  color: #ffffff !important;
+  color: var(--umi-cream) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
   box-shadow: var(--border-button-raised) !important;
   border: none !important;

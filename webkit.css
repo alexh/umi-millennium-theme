@@ -1,30 +1,29 @@
 /* UMI × Steam — globally injected (every Steam window).
-   Ornate / organic / textured aesthetic, ported from the codex chat-app
-   reference. Heavy layered shadows replace Win95-flat 2px bevels. SVG noise
-   overlay gives surfaces an industrial grain. Per-region tonal palette:
-   warm-dark base for chrome, cream for content, orange for activation. */
+   Vintage dark industrial aesthetic: graphite chrome, orange borders and
+   drop shadows, hard bevels, subtle scanlines and grain. */
 
 :where(:root) {
-  /* ── tonal palette (three depth tones + cream content) ─────────────── */
-  --umi-deep:        #14090a;   /* deepest chrome (around bezels)        */
-  --umi-base:        #1a0e08;   /* sidebar / outer chrome                */
-  --umi-base-soft:   #2a1c12;   /* primary chrome (panels, buttons)      */
-  --umi-base-mid:    #3c3836;   /* warm grey structure                   */
-  --umi-base-edge:   #5a4a3a;   /* raised edge highlight                 */
-  --umi-cream:       #fbf1c7;   /* content surface                       */
-  --umi-cream-dim:   #d5c4a1;   /* secondary content text                */
-  --umi-cream-mute:  #a89984;   /* muted content text                    */
-  --umi-fg:          #fbf1c7;   /* primary text on chrome                */
-  --umi-fg-dim:      rgba(251, 241, 199, 0.55);
-  --umi-fg-mute:     rgba(251, 241, 199, 0.30);
-  --umi-text-dark:   #2a1c12;   /* text on cream                         */
+  /* ── tonal palette (vintage graphite + orange) ───────────────────── */
+  --umi-deep:        #050608;   /* deepest charcoal shadow               */
+  --umi-base:        #0b0d10;   /* outer shell                           */
+  --umi-base-soft:   #14171b;   /* primary chrome / panels               */
+  --umi-base-mid:    #20242a;   /* raised controls                       */
+  --umi-base-edge:   #3b414a;   /* cold steel edge highlight             */
+  --umi-cream:       #eceff3;   /* primary foreground                    */
+  --umi-cream-dim:   #b6bdc7;   /* secondary foreground                  */
+  --umi-cream-mute:  #747c88;   /* muted foreground                      */
+  --umi-fg:          #eceff3;   /* primary text on chrome                */
+  --umi-fg-dim:      rgba(236, 239, 243, 0.66);
+  --umi-fg-mute:     rgba(236, 239, 243, 0.38);
+  --umi-text-dark:   #2a1c12;   /* retained compat token                 */
 
   /* ── activation accents ────────────────────────────────────────────── */
   --umi-accent:      #FF6700;   /* primary activation orange             */
   --umi-accent-2:    #FF4500;   /* secondary / hover                     */
   --umi-accent-soft: #C94A00;   /* hazard stripe dark                    */
   --umi-accent-hi:   #FF8A4A;   /* hazard stripe light                   */
-  --umi-accent-glow: rgba(255, 103, 0, 0.35);
+  --umi-accent-glow: rgba(255, 103, 0, 0.22);
+  --umi-terminal-glow: rgba(255, 103, 0, 0.10);
 
   /* ── win95-themes compat (selectors elsewhere reference these) ────── */
   --color-button-face:        var(--umi-base-soft);
@@ -33,19 +32,19 @@
   --color-button-light:       var(--umi-base-mid);
   --color-button-shadow:      var(--umi-deep);
   --color-button-shadow-dark: #000000;
-  --color-window:             var(--umi-cream);
-  --color-window-text:        var(--umi-text-dark);
-  --color-active-caption-bg-start: var(--umi-accent);
-  --color-active-caption-bg-end:   var(--umi-accent-2);
+  --color-window:             var(--umi-base-soft);
+  --color-window-text:        var(--umi-fg);
+  --color-active-caption-bg-start: var(--umi-base-mid);
+  --color-active-caption-bg-end:   var(--umi-base);
   --color-active-caption-text:     var(--umi-cream);
   --color-inactive-caption-bg-start: var(--umi-base-mid);
   --color-inactive-caption-bg-end:   var(--umi-base-soft);
   --color-inactive-caption-text:     var(--umi-cream-mute);
   --color-highlight:        var(--umi-accent);
-  --color-highlight-text:   var(--umi-cream);
+  --color-highlight-text:   #120704;
   --color-highlight-border: var(--umi-accent-hi);
-  --color-tooltip:          var(--umi-cream);
-  --color-tooltip-text:     var(--umi-text-dark);
+  --color-tooltip:          var(--umi-base-soft);
+  --color-tooltip-text:     var(--umi-fg);
   --color-gray-text:        var(--umi-cream-mute);
   --color-link:             var(--umi-accent);
 
@@ -58,8 +57,8 @@
   --text-mono-size: inherit;
 
   /* ── dimensions ────────────────────────────────────────────────────── */
-  --umi-radius:       6px;     /* universal corner radius                */
-  --umi-radius-sm:    3px;     /* small controls (status pills, dots)    */
+  --umi-radius:       3px;     /* tighter vintage corners                */
+  --umi-radius-sm:    2px;     /* small controls (status pills, dots)    */
   --umi-pad:          10px;
   --umi-pad-sm:       5px;
   --umi-gap:          8px;
@@ -74,52 +73,52 @@
      panels (sidebar, main content, dialog).                              */
   --border-window:
     0 0 0 1px var(--umi-deep),
-    inset 0 0 0 1px rgba(90, 74, 58, 0.6),
-    inset 0 1px 0 rgba(251, 241, 199, 0.08),
-    inset 0 0 16px rgba(0, 0, 0, 0.55),
-    0 6px 18px rgba(0, 0, 0, 0.55);
+    inset 0 0 0 1px rgba(236, 239, 243, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 24px rgba(0, 0, 0, 0.62),
+    0 14px 32px rgba(0, 0, 0, 0.58);
 
-  /* Cream content panel inside the chrome frame. Lighter inner glow,
-     warm-dark outer halo.                                                */
+  /* Content panel inside the chrome frame. Orange inner glow,
+     graphite outer halo.                                                 */
   --border-content:
     0 0 0 1px var(--umi-deep),
-    inset 0 0 0 1px rgba(168, 153, 132, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 -2px 4px rgba(60, 56, 54, 0.15),
-    0 4px 12px rgba(0, 0, 0, 0.4);
+    inset 0 0 0 1px rgba(236, 239, 243, 0.055),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 -2px 8px rgba(0, 0, 0, 0.34),
+    0 10px 26px rgba(0, 0, 0, 0.42);
 
   /* Raised button: warm rim highlight + soft drop shadow. */
   --border-button-raised:
     0 0 0 1px var(--umi-deep),
-    inset 0 1px 0 rgba(251, 241, 199, 0.18),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.45),
-    0 2px 4px rgba(0, 0, 0, 0.45);
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.55),
+    0 4px 12px rgba(0, 0, 0, 0.34);
 
   /* Sunken button (pressed): inverted — dark rim on top, light on bottom,
      deep inner shadow.                                                   */
   --border-button-sunken:
     0 0 0 1px var(--umi-deep),
     inset 0 2px 4px rgba(0, 0, 0, 0.6),
-    inset 0 -1px 0 rgba(251, 241, 199, 0.08);
+    inset 0 -1px 0 rgba(255, 103, 0, 0.16);
 
   /* Focused button: hazard glow ring around the raised state. */
   --border-button-focused:
     0 0 0 1px var(--umi-deep),
-    0 0 0 3px var(--umi-accent),
+    0 0 0 2px var(--umi-accent),
     0 0 0 4px var(--umi-deep),
-    inset 0 1px 0 rgba(251, 241, 199, 0.2),
-    0 0 16px var(--umi-accent-glow);
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 12px var(--umi-accent-glow);
 
   /* Field (input): deep inset, sharp inner edge. */
   --border-field:
     0 0 0 1px var(--umi-deep),
-    inset 0 0 0 1px rgba(168, 153, 132, 0.35),
-    inset 0 2px 4px rgba(0, 0, 0, 0.35);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.055),
+    inset 0 2px 4px rgba(0, 0, 0, 0.45);
 
   /* Statusbar: subtle inset. */
   --border-statusbar:
     inset 0 1px 0 rgba(0, 0, 0, 0.35),
-    inset 0 -1px 0 rgba(251, 241, 199, 0.08);
+    inset 0 -1px 0 rgba(255, 103, 0, 0.14);
 
   /* Win95-themes legacy var aliases — kept so existing selectors
      elsewhere keep resolving without rewrites.                           */
@@ -148,29 +147,63 @@
 
   --umi-noise-light: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' seed='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.16  0 0 0 0 0.10  0 0 0 0 0.07  0 0 0 0.10 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
 
+  --umi-scanlines:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 103, 0, 0.025) 0px,
+      rgba(255, 103, 0, 0.025) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+
+  --umi-engraving:
+    repeating-linear-gradient(
+      90deg,
+      rgba(236, 239, 243, 0.035) 0px,
+      rgba(236, 239, 243, 0.035) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+
   /* ── pre-baked surface backgrounds (palette + noise + glow) ──────
      Apply these as `background` on ornate panels; the layers are
      ordered with noise on top so grain is visible above color washes.   */
 
   --umi-surface-chrome:
+    var(--umi-scanlines),
+    var(--umi-engraving),
     var(--umi-noise),
-    radial-gradient(ellipse at 20% 10%, rgba(255, 103, 0, 0.06), transparent 55%),
-    radial-gradient(ellipse at 80% 90%, rgba(0, 0, 0, 0.4), transparent 50%),
-    linear-gradient(180deg, var(--umi-base-soft) 0%, var(--umi-base) 100%);
+    radial-gradient(ellipse at 18% 8%, rgba(255, 103, 0, 0.11), transparent 48%),
+    linear-gradient(180deg, #22272e 0%, #0b0d10 100%);
 
   --umi-surface-deep:
+    var(--umi-scanlines),
     var(--umi-noise),
-    radial-gradient(ellipse at 50% 0%, rgba(255, 103, 0, 0.05), transparent 60%),
-    linear-gradient(180deg, var(--umi-base) 0%, var(--umi-deep) 100%);
+    radial-gradient(ellipse at 50% 0%, rgba(255, 103, 0, 0.055), transparent 55%),
+    linear-gradient(180deg, #0f1216 0%, var(--umi-deep) 100%);
 
   --umi-surface-cream:
-    var(--umi-noise-light),
-    radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.4), transparent 50%),
-    linear-gradient(180deg, #fdf6d6 0%, #f0e2b0 100%);
+    var(--umi-scanlines),
+    var(--umi-noise),
+    radial-gradient(ellipse at 16% 0%, rgba(255, 103, 0, 0.045), transparent 45%),
+    linear-gradient(180deg, #171b20 0%, #0b0d10 100%);
 
   --umi-surface-mid:
+    var(--umi-engraving),
     var(--umi-noise),
-    linear-gradient(180deg, var(--umi-base-mid) 0%, var(--umi-base-soft) 100%);
+    radial-gradient(ellipse at 50% 0%, rgba(255, 103, 0, 0.055), transparent 52%),
+    linear-gradient(180deg, #252b32 0%, #14171b 100%);
+
+  --umi-surface-panel:
+    var(--umi-scanlines),
+    var(--umi-noise),
+    radial-gradient(ellipse at 16% 0%, rgba(255, 103, 0, 0.045), transparent 45%),
+    linear-gradient(180deg, #171b20 0%, #0b0d10 100%);
+
+  --umi-surface-field:
+    var(--umi-scanlines),
+    var(--umi-noise),
+    linear-gradient(180deg, #090b0e 0%, #030405 100%);
 
   --checkerboard: repeating-conic-gradient(
     var(--umi-cream) 0% 25%,
@@ -183,14 +216,158 @@
 /* ── globals ──────────────────────────────────────────────────────────── */
 
 html, body {
-  background: var(--umi-surface-deep);
+  background: var(--umi-surface-deep) !important;
   background-attachment: fixed;
-  color: var(--umi-fg);
+  color: var(--umi-fg) !important;
 }
 
 ::selection {
   background-color: var(--umi-accent);
-  color: var(--umi-cream);
+  color: #120704;
+}
+
+::placeholder {
+  color: var(--umi-fg-mute) !important;
+}
+
+/* ── Steam shell baseline ───────────────────────────────────────────────
+   webkit.css is the one file we have proven Millennium injects globally.
+   Keep the first-pass visual identity here; per-window files refine when
+   Steam's window-specific patcher hits. */
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode, .ModalDialogPopup, .FullModalOverlay),
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode) body {
+  background: var(--umi-surface-deep) !important;
+  color: var(--umi-fg) !important;
+  text-shadow: 0 0 4px var(--umi-terminal-glow) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is(.TitleBar, .title-area, [class*="TitleBar"], [class*="title-area"], [class*="SuperNav"], [class*="supernav"], [class*="TopBar"], [class*="topbar"]) {
+  background:
+    var(--umi-scanlines),
+    var(--umi-engraving),
+    var(--umi-noise),
+    linear-gradient(90deg, #252b32 0%, #0b0d10 100%) !important;
+  color: var(--umi-cream) !important;
+  box-shadow: var(--border-window) !important;
+  border-radius: var(--umi-radius) var(--umi-radius) 0 0 !important;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.8),
+    0 0 7px var(--umi-terminal-glow) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is([class*="Left"], [class*="left"], [class*="Sidebar"], [class*="sidebar"], [class*="Rail"], [class*="rail"], [class*="Menu"], [class*="menu"], .FriendsListContent, .ChatRoomList) {
+  background: var(--umi-surface-deep) !important;
+  color: var(--umi-fg) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is(.DialogContent, .DialogContentTransition, .DialogBody, .DialogInnerBody, .DialogTextInputBase, .DialogInput, .ModalDialogBody, [class*="Panel"], [class*="panel"], [class*="Content"], [class*="content"], [class*="Library"], [class*="library"], [class*="AppDetails"], [class*="appdetails"]) {
+  background: var(--umi-surface-panel) !important;
+  color: var(--umi-fg) !important;
+  border-color: var(--umi-base-edge) !important;
+  border-radius: var(--umi-radius) !important;
+  text-shadow: 0 0 4px var(--umi-terminal-glow) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is(.DialogContent, .DialogContentTransition, .ModalDialogPopup, .FullModalOverlay, [class*="Panel"], [class*="panel"]) {
+  box-shadow: var(--border-content) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is(button, .DialogButton, [role="button"], [class*="Button"], [class*="button"], .DialogDropDown, .DialogToggleField_Control) {
+  background: var(--umi-surface-mid) !important;
+  color: var(--umi-fg) !important;
+  border: none !important;
+  border-radius: var(--umi-radius) !important;
+  box-shadow: var(--border-button-raised) !important;
+  text-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.65),
+    0 0 5px var(--umi-terminal-glow) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is(button:hover, .DialogButton:hover, [role="button"]:hover, [class*="Button"]:hover, [class*="button"]:hover, .DialogDropDown:hover) {
+  background:
+    var(--umi-noise),
+    linear-gradient(180deg, #2f363f 0%, #14171b 100%) !important;
+  color: var(--umi-cream) !important;
+  box-shadow: var(--border-button-focused) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is(button.Primary, .DialogButton.Primary, button[class*="Primary"], [class*="PrimaryButton"], [class*="Primary"]:not(input)) {
+  background-image: var(--umi-hazard) !important;
+  background-color: var(--umi-accent) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is([aria-selected="true"], [data-selected="true"], [data-focused="true"], .Selected, .selected, [class*="Selected"], [class*="selected"], [class*="Active"], [class*="active"], .DialogToggleField_Option.Active) {
+  background:
+    var(--umi-scanlines),
+    var(--umi-noise),
+    linear-gradient(180deg, #ff6700 0%, #7a2600 100%) !important;
+  color: var(--umi-cream) !important;
+  border-color: var(--umi-accent-hi) !important;
+  box-shadow:
+    0 0 0 1px var(--umi-deep),
+    inset 0 1px 0 rgba(241, 196, 106, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.62),
+    0 0 10px var(--umi-accent-glow) !important;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.75),
+    0 0 6px rgba(255, 138, 74, 0.28) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is(input, textarea, select, .DialogTextInputBase, .DialogInput, .DialogInput_Wrapper, [class*="Search"], [class*="search"]) {
+  background: var(--umi-surface-field) !important;
+  color: var(--umi-fg) !important;
+  border: none !important;
+  border-radius: var(--umi-radius) !important;
+  box-shadow: var(--border-field) !important;
+  caret-color: var(--umi-accent-hi) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is(a, .DialogBody a, [class*="Link"], [class*="link"]) {
+  color: var(--umi-cream-dim) !important;
+  text-decoration-color: rgba(255, 103, 0, 0.18) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is(a:hover, .DialogBody a:hover, [class*="Link"]:hover, [class*="link"]:hover) {
+  color: var(--umi-accent-hi) !important;
+  text-shadow: 0 0 8px var(--umi-accent-glow) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is(.DialogHeader, .DialogSubHeader, [class*="Header"], [class*="header"]) {
+  color: var(--umi-cream) !important;
+  text-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.75),
+    0 0 5px var(--umi-terminal-glow) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is([class*="ListItem"], [class*="listitem"], [class*="GameItem"], [class*="gameitem"], [class*="Friend"], [class*="friend"], [role="option"], [role="row"], [role="tab"]) {
+  color: var(--umi-fg) !important;
+  border-radius: var(--umi-radius-sm) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is([class*="ListItem"], [class*="listitem"], [class*="GameItem"], [class*="gameitem"], [class*="Friend"], [class*="friend"], [role="option"], [role="row"], [role="tab"]):hover {
+  background:
+    var(--umi-scanlines),
+    linear-gradient(180deg, rgba(241, 196, 106, 0.09), rgba(255, 103, 0, 0.055)) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(241, 196, 106, 0.18),
+    0 0 7px rgba(255, 103, 0, 0.16) !important;
 }
 
 /* ── scrollbars (ornate, beveled) ─────────────────────────────────────── */
@@ -202,6 +379,7 @@ html, body {
 
 ::-webkit-scrollbar-track {
   background: var(--umi-surface-deep);
+  box-shadow: inset 0 0 0 1px var(--umi-deep);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -213,7 +391,7 @@ html, body {
 ::-webkit-scrollbar-thumb:hover {
   background:
     var(--umi-noise),
-    linear-gradient(180deg, var(--umi-accent) 0%, var(--umi-accent-2) 100%);
+    linear-gradient(180deg, #ff6700 0%, #7a2600 100%);
 }
 
 ::-webkit-scrollbar-thumb:active {
@@ -243,7 +421,9 @@ input[type="reset"] {
   padding: var(--umi-pad-sm) var(--umi-pad);
   min-width: var(--button-min-width);
   cursor: default;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  text-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.65),
+    0 0 5px var(--umi-terminal-glow);
 }
 
 button:hover,
@@ -251,7 +431,7 @@ input[type="button"]:hover,
 input[type="submit"]:hover {
   background:
     var(--umi-noise),
-    linear-gradient(180deg, var(--umi-base-edge) 0%, var(--umi-base-mid) 100%);
+    linear-gradient(180deg, #2f363f 0%, #14171b 100%);
 }
 
 button:active,
@@ -280,10 +460,916 @@ input[type="password"],
 textarea,
 select {
   appearance: none;
-  background: var(--umi-surface-cream);
-  color: var(--umi-text-dark);
+  background: var(--umi-surface-field);
+  color: var(--umi-fg);
   box-shadow: var(--border-field);
   border: none;
   border-radius: var(--umi-radius);
   padding: var(--umi-pad-sm) var(--umi-pad);
+  caret-color: var(--umi-accent-hi);
+}
+
+progress,
+meter {
+  background: var(--umi-surface-field) !important;
+  box-shadow: var(--border-field) !important;
+  border-radius: var(--umi-radius-sm) !important;
+}
+
+progress::-webkit-progress-value {
+  background:
+    var(--umi-scanlines),
+    linear-gradient(90deg, #8f3300 0%, var(--umi-accent) 50%, #8f3300 100%) !important;
+  box-shadow: 0 0 10px var(--umi-accent-glow) !important;
+}
+
+/* ── Steam library coverage pass ───────────────────────────────────────
+   Steam changes hashed class names often. This block intentionally uses
+   broad library/root substrings so vanilla surfaces do not leak through
+   when the more precise per-window selectors miss. */
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="libraryroot_"],
+    [class*="library_"],
+    [class*="Library"],
+    [class*="library"],
+    [class*="appdetails"],
+    [class*="AppDetails"],
+    [class*="gamelist"],
+    [class*="GameList"],
+    [class*="downloads"],
+    [class*="Downloads"]
+  ) {
+  color: var(--umi-fg) !important;
+  text-shadow: none !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="libraryroot_LibraryRoot"],
+    [class*="libraryroot_Container"],
+    [class*="library_LibraryPage"],
+    [class*="library_HomeRoot"],
+    [class*="library_AppDetails"],
+    [class*="appdetails_PlaySection"],
+    [class*="appdetails_GameInfo"],
+    [class*="appdetails_InnerContainer"],
+    [class*="downloads_DownloadsPage"],
+    [class*="downloads_Section"],
+    [class*="collectionview_"],
+    [class*="CollectionView"]
+  ) {
+  background: var(--umi-surface-deep) !important;
+  background-color: var(--umi-base) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="library_LeftList"],
+    [class*="library_LeftRail"],
+    [class*="library_LibraryMenu"],
+    [class*="gamelistbar_"],
+    [class*="GameListSearch"],
+    [class*="GameListHomeAndSearch"],
+    [class*="GameList"],
+    [class*="gameslist_"],
+    [class*="Panel"]:not([class*="appportrait"])
+  ) {
+  background: var(--umi-surface-panel) !important;
+  background-color: var(--umi-base-soft) !important;
+  border-color: var(--umi-accent-soft) !important;
+  box-shadow: var(--border-content) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="library_Container"],
+    [class*="library_Content"],
+    [class*="library_MainContent"],
+    [class*="library_AppDetailsMain"],
+    [class*="appdetails_Spotlight"],
+    [class*="appdetails_Section"],
+    [class*="appdetails_Glassy"],
+    [class*="gamepadhomerecentgames_"],
+    [class*="recentgames_"],
+    [class*="shelf_"],
+    [class*="Shelf"],
+    [class*="DialogBody"],
+    [class*="DialogContent"]
+  ) {
+  background:
+    var(--umi-scanlines),
+    var(--umi-noise),
+    linear-gradient(180deg, rgba(23, 27, 32, 0.98), rgba(11, 13, 16, 0.98)) !important;
+  background-color: var(--umi-base-soft) !important;
+  border: 1px solid rgba(255, 103, 0, 0.18) !important;
+  border-radius: var(--umi-radius) !important;
+  box-shadow: var(--border-content) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="appportrait_"],
+    [class*="GameTile"],
+    [class*="gamepadhomerecentgames_RecentGame"],
+    [class*="basicgamecarousel_CarouselGameLabel"],
+    [class*="libraryassetimage_"],
+    [class*="capsule_"],
+    [class*="Capsule"]
+  ) {
+  border-radius: var(--umi-radius) !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 103, 0, 0.18),
+    0 8px 18px rgba(0, 0, 0, 0.62),
+    0 0 18px rgba(255, 103, 0, 0.12) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="appportrait_"]:hover,
+    [class*="GameTile"]:hover,
+    [class*="libraryassetimage_"]:hover,
+    [class*="capsule_"]:hover,
+    [class*="Capsule"]:hover
+  ) {
+  box-shadow:
+    0 0 0 1px var(--umi-accent),
+    0 10px 24px rgba(0, 0, 0, 0.7),
+    0 0 26px var(--umi-accent-glow) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="library_LibraryNavLink"],
+    [class*="library_GameListItem"],
+    [class*="gameslistitems_ListItem"],
+    [class*="gamelistentry_"],
+    [class*="ListItem"],
+    [class*="listitem"],
+    [role="treeitem"],
+    [role="option"],
+    [role="row"]
+  ) {
+  background: transparent !important;
+  color: var(--umi-fg-dim) !important;
+  border: 1px solid transparent !important;
+  border-radius: var(--umi-radius-sm) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="library_LibraryNavLink"]:hover,
+    [class*="library_GameListItem"]:hover,
+    [class*="gameslistitems_ListItem"]:hover,
+    [class*="gamelistentry_"]:hover,
+    [class*="ListItem"]:hover,
+    [class*="listitem"]:hover,
+    [role="treeitem"]:hover,
+    [role="option"]:hover,
+    [role="row"]:hover
+  ) {
+  background:
+    var(--umi-noise),
+    linear-gradient(90deg, rgba(255, 103, 0, 0.14), rgba(255, 103, 0, 0.04)) !important;
+  color: var(--umi-fg) !important;
+  border-color: rgba(255, 103, 0, 0.18) !important;
+  box-shadow: 0 0 12px rgba(255, 103, 0, 0.18) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="library_LibraryNavLink"][aria-selected="true"],
+    [class*="library_GameListItem"][aria-selected="true"],
+    [class*="gameslistitems_ListItem"][aria-selected="true"],
+    [class*="gamelistentry_"][aria-selected="true"],
+    [class*="Selected"],
+    [class*="selected"],
+    [aria-selected="true"],
+    [data-selected="true"]
+  ) {
+  background:
+    var(--umi-scanlines),
+    var(--umi-noise),
+    linear-gradient(90deg, var(--umi-accent) 0%, #7a2600 100%) !important;
+  color: #ffffff !important;
+  border-color: var(--umi-accent-hi) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.6),
+    0 0 18px var(--umi-accent-glow) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="supernav"],
+    [class*="SuperNav"],
+    [class*="titlebar"],
+    [class*="TitleBar"],
+    [class*="topbar"],
+    [class*="TopBar"],
+    [class*="steamdesktop_"],
+    [id*="TitleBar"]
+  ) {
+  background:
+    var(--umi-engraving),
+    var(--umi-noise),
+    linear-gradient(180deg, #20242a 0%, #0b0d10 100%) !important;
+  color: var(--umi-fg) !important;
+  border-bottom: 1px solid rgba(255, 103, 0, 0.18) !important;
+  box-shadow:
+    0 1px 0 rgba(255, 103, 0, 0.14),
+    0 8px 20px rgba(0, 0, 0, 0.55) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    button,
+    [role="button"],
+    [class*="Button"],
+    [class*="button"],
+    [class*="Tab"],
+    [class*="tab"],
+    .DialogButton
+  ) {
+  background:
+    var(--umi-noise),
+    linear-gradient(180deg, #252b32 0%, #14171b 100%) !important;
+  color: var(--umi-fg) !important;
+  border: 1px solid rgba(255, 103, 0, 0.18) !important;
+  border-radius: var(--umi-radius) !important;
+  box-shadow: var(--border-button-raised) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    input,
+    textarea,
+    select,
+    [class*="Search"],
+    [class*="search"],
+    [class*="TextInput"],
+    [class*="Input"]
+  ) {
+  background: var(--umi-surface-field) !important;
+  color: var(--umi-fg) !important;
+  border: 1px solid rgba(255, 103, 0, 0.18) !important;
+  border-radius: var(--umi-radius) !important;
+  box-shadow: var(--border-field) !important;
+}
+
+/* Current Steam library CSS-module hashes, extracted from the installed
+   steamui bundle. These are intentionally plain class selectors because the
+   rendered DOM often contains only hashes, not readable module names. */
+
+._3fp5y6tdU77MdrCQZt_aS9,
+._3HXLORhfCgK8XSBfWvMW4s,
+.ETHkFxrlPF1znTFXFtjtK,
+._1DLmEVjfX3d7Ec8CW7vJnt,
+._2Nq6ov7A1hGcHXVOXNt_OE,
+._2-ns_GqXzymHk0jsXBBWJ1,
+._17iCvVAxnC3dSA3LKShx_t,
+._1e6tjguQEHdYIehM9aRmO5,
+._2TKEazUUS3TlniZfpc8OOe,
+._37s6gm02-LeQnuxiAIuliR,
+._2ZP8eOoQ1-pME4-pF91qSt,
+._298_NBin_2wV9a3P1Smj5i,
+._9sPoVBFyE_vE87mnZJ5aB {
+  background:
+    var(--umi-scanlines),
+    var(--umi-noise),
+    linear-gradient(180deg, rgba(15, 18, 22, 0.98), rgba(5, 6, 8, 0.98)) !important;
+  background-color: var(--umi-base) !important;
+  color: var(--umi-fg) !important;
+}
+
+._37s6gm02-LeQnuxiAIuliR,
+._2ZP8eOoQ1-pME4-pF91qSt,
+._298_NBin_2wV9a3P1Smj5i,
+._9sPoVBFyE_vE87mnZJ5aB {
+  border-right: 1px solid rgba(255, 103, 0, 0.14) !important;
+  box-shadow: 8px 0 20px rgba(0, 0, 0, 0.28) !important;
+}
+
+._1_cYNJSvS6IXs9vLTEYjy5,
+._2r4TK4BAuU-J4FuF_O7v_5,
+._31ptFGGMZrSQc5BCX1e5lm,
+._1zDJ1bfFg-UkuAluUAoGKj,
+._2ie48XbgFd0lvzMJhJ8Es_,
+._39tNvaLedsTrVh0fFsP4Jm,
+._2_cRkGdbegoIbiRsy_-I7,
+._282X0J4BtrSF1IXctmOe-X,
+._38MncfB91VUpkDo8NSxAeV,
+.oAqlZTgPU37Nb8gBT5eAM,
+._3KmXj7hMuHNMxiHu45jWUe,
+._32SD3UPT95_ZL7tqOsf080,
+._2_dwxMdH27kBf-gQ3Wrk7z,
+._1HS4twEHtDJ_8MWgJT4VBd,
+._11p6Fm47YPaY-YjtuLYMMJ,
+._3ANruIVwRSgaU7L1eWRnf8,
+.cooZdx-qHovBnYBsOuBdr,
+.vx3knmyenf_S3X10Aijxa,
+.z-cTLiR329QSsE3P9rkR {
+  background:
+    var(--umi-noise),
+    linear-gradient(180deg, rgba(23, 27, 32, 0.96), rgba(11, 13, 16, 0.96)) !important;
+  background-color: var(--umi-base-soft) !important;
+  color: var(--umi-fg) !important;
+  border: 1px solid rgba(255, 103, 0, 0.14) !important;
+  border-radius: var(--umi-radius) !important;
+  box-shadow:
+    0 5px 16px rgba(0, 0, 0, 0.42),
+    0 0 12px rgba(255, 103, 0, 0.06) !important;
+}
+
+.SB4L7nXFrmPc_Px98Y-Tp,
+._2pjdgFqp04LlhgtFS0rQn_,
+._1PbL3TgQGIsmPs2HZkpCkb,
+._2jj5TjFhHD1lvxMlpJYek6,
+.N8aJrSpxQ6II4CY_aFdYI,
+._1RLnyCu6_DW-NTlpHTBhig,
+._1esfEVxhqNfh8fzr_kEGKa,
+._2XftMcBO9aY7VXCivzuW7- {
+  border-radius: var(--umi-radius) !important;
+  box-shadow:
+    0 0 0 1px rgba(255, 103, 0, 0.18),
+    0 8px 18px rgba(0, 0, 0, 0.52) !important;
+}
+
+.SB4L7nXFrmPc_Px98Y-Tp:hover,
+._2pjdgFqp04LlhgtFS0rQn_:hover,
+._1PbL3TgQGIsmPs2HZkpCkb:hover,
+._2jj5TjFhHD1lvxMlpJYek6:hover,
+.N8aJrSpxQ6II4CY_aFdYI:hover {
+  box-shadow:
+    0 0 0 1px rgba(255, 103, 0, 0.72),
+    0 10px 24px rgba(0, 0, 0, 0.64),
+    0 0 18px rgba(255, 103, 0, 0.14) !important;
+}
+
+._1vO6BoiVslZgs1kqDGdUs8,
+._2C3-Rj_GA3KP7GklMymoPM,
+.VwcCoDMU0ROCpRAJ_cXTx,
+._2SXJM0PeFEi3gbC7V3S5pE,
+._1J1LQ0vGtpM3n0xw7XwQM6,
+._2cTiGDjpUyBonh9hRHHcwz,
+._3Wdcnn441kMnbBhOOz7uba {
+  color: var(--umi-fg-dim) !important;
+  background: transparent !important;
+  border-radius: var(--umi-radius-sm) !important;
+}
+
+._1vO6BoiVslZgs1kqDGdUs8:hover,
+._2C3-Rj_GA3KP7GklMymoPM:hover {
+  color: var(--umi-fg) !important;
+  background:
+    var(--umi-noise),
+    linear-gradient(90deg, rgba(255, 103, 0, 0.18), rgba(255, 103, 0, 0.02)) !important;
+  box-shadow: inset 2px 0 0 var(--umi-accent) !important;
+}
+
+/* ── aesthetic softening pass ──────────────────────────────────────────
+   Earlier coverage rules intentionally hit a lot of Steam surfaces. This
+   final layer keeps that coverage but removes the boxed-in debug feel:
+   graphite massing first, orange only as a soft signal. */
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="library_Container"],
+    [class*="library_Content"],
+    [class*="library_MainContent"],
+    [class*="library_AppDetailsMain"],
+    [class*="appdetails_Spotlight"],
+    [class*="appdetails_Section"],
+    [class*="appdetails_Glassy"],
+    [class*="gamepadhomerecentgames_"],
+    [class*="recentgames_"],
+    [class*="shelf_"],
+    [class*="Shelf"],
+    [class*="Panel"],
+    [class*="panel"],
+    [class*="DialogBody"],
+    [class*="DialogContent"]
+  ),
+._1_cYNJSvS6IXs9vLTEYjy5,
+._2r4TK4BAuU-J4FuF_O7v_5,
+._31ptFGGMZrSQc5BCX1e5lm,
+._1zDJ1bfFg-UkuAluUAoGKj,
+._2ie48XbgFd0lvzMJhJ8Es_,
+._39tNvaLedsTrVh0fFsP4Jm,
+._2_cRkGdbegoIbiRsy_-I7,
+._282X0J4BtrSF1IXctmOe-X,
+._38MncfB91VUpkDo8NSxAeV,
+.oAqlZTgPU37Nb8gBT5eAM,
+._3KmXj7hMuHNMxiHu45jWUe,
+._32SD3UPT95_ZL7tqOsf080,
+._2_dwxMdH27kBf-gQ3Wrk7z,
+._1HS4twEHtDJ_8MWgJT4VBd,
+._11p6Fm47YPaY-YjtuLYMMJ,
+._3ANruIVwRSgaU7L1eWRnf8,
+.cooZdx-qHovBnYBsOuBdr,
+.vx3knmyenf_S3X10Aijxa,
+.z-cTLiR329QSsE3P9rkR {
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 12px 28px rgba(0, 0, 0, 0.34) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    button,
+    [role="button"],
+    [class*="Button"],
+    [class*="button"],
+    [class*="Tab"],
+    [class*="tab"],
+    .DialogButton,
+    input,
+    textarea,
+    select,
+    [class*="Search"],
+    [class*="search"],
+    [class*="TextInput"],
+    [class*="Input"]
+  ) {
+  border: 0 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.55),
+    0 6px 14px rgba(0, 0, 0, 0.30) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="library_LibraryNavLink"],
+    [class*="library_GameListItem"],
+    [class*="gameslistitems_ListItem"],
+    [class*="gamelistentry_"],
+    [class*="ListItem"],
+    [class*="listitem"],
+    [role="treeitem"],
+    [role="option"],
+    [role="row"]
+  ),
+._1vO6BoiVslZgs1kqDGdUs8,
+._2C3-Rj_GA3KP7GklMymoPM {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="library_LibraryNavLink"]:hover,
+    [class*="library_GameListItem"]:hover,
+    [class*="gameslistitems_ListItem"]:hover,
+    [class*="gamelistentry_"]:hover,
+    [class*="ListItem"]:hover,
+    [class*="listitem"]:hover,
+    [role="treeitem"]:hover,
+    [role="option"]:hover,
+    [role="row"]:hover
+  ),
+._1vO6BoiVslZgs1kqDGdUs8:hover,
+._2C3-Rj_GA3KP7GklMymoPM:hover {
+  background:
+    linear-gradient(90deg, rgba(255, 103, 0, 0.20), rgba(255, 103, 0, 0.035)) !important;
+  box-shadow:
+    inset 3px 0 0 rgba(255, 103, 0, 0.9),
+    0 4px 12px rgba(0, 0, 0, 0.24) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="library_LibraryNavLink"][aria-selected="true"],
+    [class*="library_GameListItem"][aria-selected="true"],
+    [class*="gameslistitems_ListItem"][aria-selected="true"],
+    [class*="gamelistentry_"][aria-selected="true"],
+    [class*="Selected"],
+    [class*="selected"],
+    [aria-selected="true"],
+    [data-selected="true"]
+  ) {
+  border: 0 !important;
+  background:
+    linear-gradient(90deg, rgba(255, 103, 0, 0.95), rgba(255, 103, 0, 0.28)) !important;
+  box-shadow:
+    inset 3px 0 0 #ffb088,
+    0 8px 22px rgba(255, 103, 0, 0.18) !important;
+}
+
+.SB4L7nXFrmPc_Px98Y-Tp,
+._2pjdgFqp04LlhgtFS0rQn_,
+._1PbL3TgQGIsmPs2HZkpCkb,
+._2jj5TjFhHD1lvxMlpJYek6,
+.N8aJrSpxQ6II4CY_aFdYI,
+._1RLnyCu6_DW-NTlpHTBhig,
+._1esfEVxhqNfh8fzr_kEGKa,
+._2XftMcBO9aY7VXCivzuW7- {
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.42) !important;
+}
+
+.SB4L7nXFrmPc_Px98Y-Tp:hover,
+._2pjdgFqp04LlhgtFS0rQn_:hover,
+._1PbL3TgQGIsmPs2HZkpCkb:hover,
+._2jj5TjFhHD1lvxMlpJYek6:hover,
+.N8aJrSpxQ6II4CY_aFdYI:hover {
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.54),
+    0 0 24px rgba(255, 103, 0, 0.18) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="supernav"],
+    [class*="SuperNav"],
+    [class*="titlebar"],
+    [class*="TitleBar"],
+    [class*="topbar"],
+    [class*="TopBar"],
+    [class*="steamdesktop_"],
+    [id*="TitleBar"]
+  ) {
+  border: 0 !important;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.045),
+    0 10px 26px rgba(0, 0, 0, 0.44) !important;
+}
+
+/* ── current desktop-library correction layer ──────────────────────────
+   Targets the visible default-color leaks from the current Steam build:
+   main menu, supernav, library home, What's New, shelves, bottom bar. */
+
+._39oUCO1OuizVPwcnnv88no,
+._3Z7VQ1IMk4E3HsHvrkLNgo,
+._3Z3ohQ8-1NKnCZkbS6fvy,
+._2D64jIEK7wpUR_NlObDW76,
+._7AlhCx3XGzBeIrQaCneUD,
+._3s0lkohH8wU2do0K1il28Y,
+._1Ky59qmywxOUtNcI1cgmkX,
+.vEjyNhuB8Y2lwFc7zj8gj,
+.bSKGlAJG2UVWTsntEJY2v,
+._1_1gXneI2QlOdyXMqiCZJx,
+.qP17eBPXkfezFfexZ4hC3,
+._1-9sir4j_KQiMqdkZjQN0u,
+._3cykd-VfN_xBxf3Qxriccm,
+._162CJAH8jPwIYGGg5Q2YIc {
+  background:
+    var(--umi-noise),
+    linear-gradient(180deg, rgba(18, 21, 26, 0.98), rgba(8, 10, 13, 0.98)) !important;
+  background-color: var(--umi-base) !important;
+  color: var(--umi-fg-dim) !important;
+  border: 0 !important;
+  box-shadow:
+    inset 0 -1px 0 rgba(255, 255, 255, 0.035),
+    0 8px 24px rgba(0, 0, 0, 0.38) !important;
+}
+
+._3Z3ohQ8-1NKnCZkbS6fvy a,
+._2D64jIEK7wpUR_NlObDW76 a,
+._7AlhCx3XGzBeIrQaCneUD a,
+._3s0lkohH8wU2do0K1il28Y *,
+._1Ky59qmywxOUtNcI1cgmkX *,
+._2utXvAVvZJb3Wlt5jGxCs * {
+  color: var(--umi-fg-dim) !important;
+}
+
+._3Z3ohQ8-1NKnCZkbS6fvy a:hover,
+._2D64jIEK7wpUR_NlObDW76 a:hover,
+._7AlhCx3XGzBeIrQaCneUD a:hover,
+._3s0lkohH8wU2do0K1il28Y *:hover,
+._1Ky59qmywxOUtNcI1cgmkX *:hover,
+._2utXvAVvZJb3Wlt5jGxCs *:hover {
+  color: var(--umi-fg) !important;
+  text-shadow: 0 0 12px rgba(255, 103, 0, 0.22) !important;
+}
+
+._3Z3ohQ8-1NKnCZkbS6fvy .active,
+._2D64jIEK7wpUR_NlObDW76 .active,
+._7AlhCx3XGzBeIrQaCneUD .active,
+._2utXvAVvZJb3Wlt5jGxCs .active,
+._2utXvAVvZJb3Wlt5jGxCs [aria-selected="true"] {
+  color: var(--umi-accent-hi) !important;
+  box-shadow: inset 0 -2px 0 var(--umi-accent) !important;
+}
+
+._3Sb2o_mQ30IDRh0C72QUUu,
+._1NCHRjqdjqGE3JbG4b0rLF,
+.rvYRfhjWoi57GShuRcAwP,
+.oo2nrd4lEaP0P5bxO355t,
+._2_cRkGdbegoIbiRsy_-I7,
+._282X0J4BtrSF1IXctmOe-X,
+.biTV-8rS2M65imVHU15Nv,
+._1RLnyCu6_DW-NTlpHTBhig,
+.oAqlZTgPU37Nb8gBT5eAM {
+  background:
+    var(--umi-noise),
+    radial-gradient(ellipse at 25% 0%, rgba(255, 103, 0, 0.045), transparent 42%),
+    linear-gradient(180deg, rgba(18, 21, 26, 0.96), rgba(8, 10, 13, 0.96)) !important;
+  background-color: var(--umi-base) !important;
+  color: var(--umi-fg) !important;
+}
+
+.rvYRfhjWoi57GShuRcAwP,
+._1NCHRjqdjqGE3JbG4b0rLF,
+.oAqlZTgPU37Nb8gBT5eAM {
+  border: 0 !important;
+  border-radius: 4px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 14px 32px rgba(0, 0, 0, 0.34) !important;
+}
+
+._35iRep_MLGWeAmkLbeny7R,
+._1KKWf5v5FhqL_NrtrGZPzG,
+._3hW5F3JQJmt0L67hcy_U1V,
+._1UuM8B1MkiPFqJqO5XkYeZ,
+.fyxt0H7Cwfirf9908slPp,
+._2Sj4-UDM-dHSxtxwQ_Pwwz,
+._1YdRdM9TZ_3Xolwv9aVEv- {
+  background:
+    linear-gradient(180deg, rgba(32, 36, 42, 0.92), rgba(14, 16, 20, 0.92)) !important;
+  background-color: var(--umi-base-mid) !important;
+  color: var(--umi-fg) !important;
+  border: 0 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    0 6px 16px rgba(0, 0, 0, 0.30) !important;
+}
+
+._3Mp8R2wnoCl6ko0HAX8IHE,
+.MYh5NAv2dEuZH1E8bRwKH,
+.QNkOtW3xS-yj6LviWHvnd,
+._30D-80Lg-Luy-KxOumBlaY,
+._1SRoxsfD-XkekIXfr0ofs3,
+._3WXchKkPvnl2QloRaF5aQ7 {
+  opacity: 0.42 !important;
+  filter: saturate(0.65) brightness(0.58) contrast(1.08) !important;
+}
+
+._2_gV0gh1Ecpn2Rbaapz0J,
+._2-gV0gh1Ecpn2Rbaapz0J {
+  background: var(--umi-surface-deep) !important;
+  color: var(--umi-fg) !important;
+}
+
+:is(.DesktopUI, .BasicUI) :is(.DialogButton, button, [role="button"], [class*="Button"], [class*="button"]):hover {
+  background:
+    linear-gradient(180deg, rgba(45, 51, 60, 0.98), rgba(18, 21, 26, 0.98)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.10),
+    0 8px 20px rgba(0, 0, 0, 0.34),
+    0 0 18px rgba(255, 103, 0, 0.12) !important;
+}
+
+/* ── app details page polish ───────────────────────────────────────────
+   Cleans up the currently visible game-details page: hero footer, play
+   strip, subnav, featured card, quick links, and right column. */
+
+._3fp5y6tdU77MdrCQZt_aS9,
+.ETHkFxrlPF1znTFXFtjtK,
+._17iCvVAxnC3dSA3LKShx_t,
+._2-ns_GqXzymHk0jsXBBWJ1,
+._1DLmEVjfX3d7Ec8CW7vJnt,
+._2Nq6ov7A1hGcHXVOXNt_OE {
+  background:
+    var(--umi-noise),
+    linear-gradient(180deg, rgba(12, 14, 18, 0.98), rgba(5, 6, 8, 0.98)) !important;
+  background-color: var(--umi-base) !important;
+  color: var(--umi-fg) !important;
+}
+
+._3scbHORkYB7utTUGfkMCC_,
+._1nTD-C3qRvYp3RSRZSegz3,
+.pzBMdSbGpu7XfypZMU6PK,
+._2GqvVM-UeNGM7ptNftUVn_,
+._32SD3UPT95_ZL7tqOsf080,
+._2eJEJmUJveWN1xIBo6qxQ_,
+._23qegHo5ClQhfdFGRMtHGu,
+._191m8o8LhM8At6rjYqT6Eu,
+._3zXJCBqLZLo9JuXSJobudq,
+._3qVQnLXXPSIkYnN0O7TJ95,
+._2VuwTaKaCTFvDQc3LSPIM0,
+._3rsrz7BYWjqGBhzcpn-Auo,
+._3Gg0KvfCct51O3L9T5Y7Zb,
+._2prtQO__Dmp4DdAYK0HWUI,
+._3gb3JeV_1IMaIeODzBSrP3,
+._1z1vY2bKcMfH00G0wySF_c,
+._2CF7NUaHI_SNcunu0NLlC3,
+._30-E9De2BTSA_LQAluUDUI {
+  background:
+    var(--umi-noise),
+    linear-gradient(180deg, rgba(23, 27, 32, 0.94), rgba(10, 12, 15, 0.94)) !important;
+  background-color: var(--umi-base-soft) !important;
+  color: var(--umi-fg) !important;
+  border: 0 !important;
+  border-radius: 4px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 12px 28px rgba(0, 0, 0, 0.34) !important;
+}
+
+._3scbHORkYB7utTUGfkMCC_ {
+  margin-top: 8px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 -12px 28px rgba(0, 0, 0, 0.28),
+    0 14px 28px rgba(0, 0, 0, 0.36) !important;
+}
+
+._2sJlIVAVWZ2I2iA6IO4pOv,
+._2DuZoSVxD0l6CMoZyqFe0Z,
+.QsZdWtHTlIK9KIKbscNTt {
+  background:
+    linear-gradient(180deg, rgba(255, 103, 0, 0.95), rgba(167, 55, 0, 0.95)) !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  border-radius: 3px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 10px 24px rgba(0, 0, 0, 0.34),
+    0 0 20px rgba(255, 103, 0, 0.18) !important;
+}
+
+._2sJlIVAVWZ2I2iA6IO4pOv:hover,
+._2DuZoSVxD0l6CMoZyqFe0Z:hover,
+.QsZdWtHTlIK9KIKbscNTt:hover {
+  filter: brightness(1.08) saturate(1.05) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 12px 28px rgba(0, 0, 0, 0.42),
+    0 0 26px rgba(255, 103, 0, 0.28) !important;
+}
+
+._3QRmtfHxfqEPXDxBHVjAMJ,
+.YMmXzjieZthpAehitId4M,
+._1wKUEA0cYqeUELXMe3Tp6T,
+.D1bMmHTycpEqG4Sp3VVvH,
+._2U9E5YNMewy5F336yikcMG {
+  background:
+    linear-gradient(180deg, rgba(20, 23, 27, 0.96), rgba(7, 8, 10, 0.96)) !important;
+  color: var(--umi-fg-dim) !important;
+  border: 0 !important;
+  border-radius: 4px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 10px 22px rgba(0, 0, 0, 0.30) !important;
+}
+
+._3QRmtfHxfqEPXDxBHVjAMJ *,
+.YMmXzjieZthpAehitId4M *,
+._1wKUEA0cYqeUELXMe3Tp6T *,
+.D1bMmHTycpEqG4Sp3VVvH *,
+._2U9E5YNMewy5F336yikcMG * {
+  color: var(--umi-fg-dim) !important;
+}
+
+._3QRmtfHxfqEPXDxBHVjAMJ *:hover,
+.YMmXzjieZthpAehitId4M *:hover,
+._1wKUEA0cYqeUELXMe3Tp6T *:hover,
+.D1bMmHTycpEqG4Sp3VVvH *:hover,
+._2U9E5YNMewy5F336yikcMG *:hover {
+  color: var(--umi-accent-hi) !important;
+}
+
+._2eJEJmUJveWN1xIBo6qxQ_ {
+  overflow: hidden !important;
+}
+
+._2eJEJmUJveWN1xIBo6qxQ_::before,
+._23qegHo5ClQhfdFGRMtHGu::before,
+._191m8o8LhM8At6rjYqT6Eu::before,
+._3zXJCBqLZLo9JuXSJobudq::before,
+._3qVQnLXXPSIkYnN0O7TJ95::before {
+  background: none !important;
+}
+
+._1BFoQnguOSI-xsf5AkXR1p,
+._3gY0aBuNR8_NPTpXIYfkby,
+._30acA_E0q_GuOxBqxgDJj4,
+.HyLTsW5IARiFx7QTN44vJ,
+._20sN9G_C5kZ9GO_mVUuWTD,
+._3RsRfCOW7Do0JNHcEs2nqX,
+._2q529ACD1lzjGBuZpbSp7O,
+.nnOTTmLAJXKRiD2yyn3Zy,
+._2SnnSKBIwVf8MnI_4pyZI_ {
+  background:
+    var(--umi-noise),
+    linear-gradient(180deg, rgba(18, 21, 26, 0.92), rgba(8, 10, 13, 0.92)) !important;
+  border: 0 !important;
+  border-radius: 4px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 10px 24px rgba(0, 0, 0, 0.30) !important;
+}
+
+/* ── current app-details activity/feed classes ──────────────────────── */
+
+.S2Fu9HxHCA5MaCLGrN2ib,
+._1UMFnczt69Ka8nOWKMzKJR,
+.UVeN0kaD3zv1feMj_mMw5,
+.NEMXhMlqXOCJwfgWlHXhT,
+._3xi-HLpFVHaakihoqhQ_6C,
+.By7D93oEZkZtBeg23NDoR,
+._3QRf-tp5VddAF00vWY5Gn8,
+._1AYE16384J_ecLpN0sEYc5,
+.fmLfuqm0Lxq5iPS5EHCAW,
+._39Zk32AvV5cr6g-83IVRVS,
+._1_cYNJSvS6IXs9vLTEYjy5,
+._1j_gja8bHXjiS-BeSQk8hb,
+._2ie48XbgFd0lvzMJhJ8Es_,
+.bG5F-o9ZUikaoNCIniMEa,
+._17fERhdFtn_kAdYlmq6ebe,
+._25f0fX6qbgdB7O_lMrbhCN,
+._2r4TK4BAuU-J4FuF_O7v_5,
+._31ptFGGMZrSQc5BCX1e5lm,
+._2dnxv1f3olKbOSmfSFezvJ,
+._1W34WpqfvufNgueNdZozwC,
+._3DyemX0QGhW2mipZQwVfnS {
+  background:
+    var(--umi-noise),
+    linear-gradient(180deg, rgba(20, 23, 27, 0.96), rgba(8, 10, 13, 0.96)) !important;
+  background-color: var(--umi-base-soft) !important;
+  color: var(--umi-fg) !important;
+  border: 0 !important;
+  border-radius: 4px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 10px 24px rgba(0, 0, 0, 0.30) !important;
+}
+
+._1WdC0YUP8FT0dYWZ-QIVZL,
+._1jkfJdGTyndLlXdB9WkfL3,
+._1Q2q_tQ9_Eq8YdEHNAHS3F,
+._2wBK7MqJSrj6QCxf3357yL,
+._1Q-eMJi4hHWapnM5jkXqg7,
+.P_gQ8X-yCsgXeXpP68KS0,
+._3ugJ_KPVlOd9oeYm-fYC_w,
+._3bWISeqP3H2j6YJnFwVEwu,
+.QCKBqF2k_sRLcXJ5qQIEl {
+  background:
+    linear-gradient(90deg, rgba(255, 103, 0, 0.95), rgba(143, 51, 0, 0.72) 42%, rgba(14, 16, 20, 0.98)) !important;
+  background-color: var(--umi-accent-soft) !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  border-radius: 4px 4px 0 0 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 8px 20px rgba(0, 0, 0, 0.30),
+    0 0 18px rgba(255, 103, 0, 0.12) !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7) !important;
+}
+
+._1KR5XpPLCIid-SJBY4jFIp,
+.nEBZT02OOnxIbyIl9Dk44,
+._1gljEIuhbsQpFCWuVhdKTJ,
+._1Cva_kor3lWBIoeu9cQxJq,
+.YE_jJPwp0fBbRm1vQHIIq,
+._3Cdin80d-hVsakHUZboheb {
+  color: var(--umi-accent-hi) !important;
+}
+
+._3SzXrXnWa-W29h_4yF8Jwv,
+.Ru7OBQzSxqIo3jIsbtV9g,
+._3ZUP3RJr6PRn6IzODoxZDx,
+._1WX1kNsKXbF3qneCHh4kTv,
+.UE_Mse5yL68-_H3qFd0Mm,
+._6TGe7-X6PrRRyqOPxNwRd,
+._19LfMT7PFWg2xHOqNjR99q {
+  color: var(--umi-fg-dim) !important;
+}
+
+.NaIUAhNNISCMZymTaSPtz,
+._1qOWMo-qOzCUkMGY4f_EP5 {
+  background: rgba(255, 103, 0, 0.18) !important;
+  border: 0 !important;
+}
+
+._3Mq6sekyFK-ftT7QO56xSv,
+._3Cdin80d-hVsakHUZboheb {
+  background:
+    linear-gradient(180deg, rgba(32, 36, 42, 0.94), rgba(12, 14, 18, 0.94)) !important;
+  border: 0 !important;
+  border-radius: 3px !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.055),
+    0 8px 18px rgba(0, 0, 0, 0.30) !important;
+}
+
+._3Cdin80d-hVsakHUZboheb:hover,
+.YE_jJPwp0fBbRm1vQHIIq:hover {
+  color: #ffffff !important;
+  background:
+    linear-gradient(180deg, rgba(255, 103, 0, 0.94), rgba(167, 55, 0, 0.94)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 8px 20px rgba(0, 0, 0, 0.32),
+    0 0 18px rgba(255, 103, 0, 0.22) !important;
+}
+
+.ETHkFxrlPF1znTFXFtjtK :is([style*="background: rgb(31, 44, 56)"], [style*="background-color: rgb(31, 44, 56)"], [style*="background: #1f2c38"], [style*="background-color: #1f2c38"]) {
+  background:
+    var(--umi-noise),
+    linear-gradient(180deg, rgba(20, 23, 27, 0.96), rgba(8, 10, 13, 0.96)) !important;
 }

@@ -89,14 +89,14 @@ body:focus-within .title-area,
   margin: var(--umi-gap);
 }
 
-/* main content panel — cream parchment (matches reference's chat area) */
+/* main content panel — dark graphite terminal (matches reference's chat area) */
 [class*="library_MainContent"],
 [class*="library_HeroDisplay"],
 [class*="appdetailsmain"],
 .simplepanel,
 [class*="simplepanel"] {
-  background: var(--umi-surface-cream);
-  color: var(--umi-text-dark);
+  background: var(--umi-surface-panel);
+  color: var(--umi-fg);
   box-shadow: var(--border-content);
   border-radius: var(--umi-radius);
   margin: var(--umi-gap);
@@ -133,7 +133,7 @@ body:focus-within .title-area,
 .listbox-item[aria-selected="true"] {
   background:
     var(--umi-noise),
-    linear-gradient(180deg, var(--umi-accent) 0%, var(--umi-accent-2) 100%) !important;
+    linear-gradient(180deg, #ff6700 0%, #7a2600 100%) !important;
   color: var(--umi-cream) !important;
   border: 1px solid var(--umi-accent-soft) !important;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
@@ -150,7 +150,7 @@ body:focus-within .title-area,
 [class*="TabSelected"],
 [role="tab"][aria-selected="true"] {
   background-image: var(--umi-hazard) !important;
-  color: #ffffff !important;
+  color: var(--umi-cream) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
   box-shadow: var(--border-button-sunken);
   border-radius: var(--umi-radius) var(--umi-radius) 0 0;
@@ -225,7 +225,7 @@ body:focus-within .title-area,
 button[class*="Primary"]:not([class*="Secondary"]) {
   background-image: var(--umi-hazard) !important;
   background-color: var(--umi-accent) !important;
-  color: #ffffff !important;
+  color: var(--umi-cream) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
   font-weight: bold;
 }
@@ -241,7 +241,7 @@ button[class*="Primary"]:active {
   filter: brightness(0.85);
 }
 
-/* ── dialogs / modals (cream content inside chrome frame) ─────────────── */
+/* ── dialogs / modals (dark content inside chrome frame) ─────────────── */
 
 .ModalDialogPopup,
 [class*="ModalDialogPopup"],
@@ -259,8 +259,8 @@ button[class*="Primary"]:active {
 [class*="DialogBody"],
 .DialogContent,
 [class*="DialogContent"] {
-  background: var(--umi-surface-cream) !important;
-  color: var(--umi-text-dark) !important;
+  background: var(--umi-surface-panel) !important;
+  color: var(--umi-fg) !important;
   box-shadow: var(--border-content) !important;
   border-radius: var(--umi-radius) !important;
   padding: var(--umi-pad) !important;
@@ -289,7 +289,7 @@ button[class*="Primary"]:active {
   backdrop-filter: blur(2px);
 }
 
-/* ── inputs (deep inset, cream surface) ───────────────────────────────── */
+/* ── inputs (deep inset, dark inset surface) ───────────────────────────────── */
 
 input[class*="basicTextInput"],
 [class*="searchInput"] input,
@@ -297,8 +297,8 @@ input[class*="basicTextInput"],
 input[type="text"],
 input[type="search"],
 textarea {
-  background: var(--umi-surface-cream) !important;
-  color: var(--umi-text-dark) !important;
+  background: var(--umi-surface-panel) !important;
+  color: var(--umi-fg) !important;
   box-shadow: var(--border-field) !important;
   border: none !important;
   border-radius: var(--umi-radius) !important;
@@ -348,8 +348,8 @@ progress::-webkit-progress-value {
 [role="tooltip"],
 [class*="tooltip"],
 [class*="Tooltip"] {
-  background: var(--umi-surface-cream) !important;
-  color: var(--umi-text-dark) !important;
+  background: var(--umi-surface-panel) !important;
+  color: var(--umi-fg) !important;
   border: 1px solid var(--umi-deep) !important;
   border-radius: var(--umi-radius-sm) !important;
   padding: 4px 8px;

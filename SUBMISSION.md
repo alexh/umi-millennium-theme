@@ -18,11 +18,11 @@ https://github.com/alexh/umi-millennium-theme
 
 ### Description
 
-UMI is an ornate industrial Steam theme with warm-dark chrome, cream content panels, layered bevels, subtle SVG grain, and hazard-orange activation states.
+UMI is a vintage dark industrial Steam theme with graphite chrome, cold light text, black inset fields, orange-edged steel bevels, scanline grain, and hazard-orange activation states.
 
 ### Tags
 
-Dark, Industrial, Textured, Ornate
+Dark, Vintage, Industrial, Textured, Ornate
 
 ### Notes
 
