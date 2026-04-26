@@ -1476,3 +1476,208 @@ progress::-webkit-progress-value {
     inset 3px 0 0 #ffb088,
     0 8px 22px rgba(255, 103, 0, 0.18) !important;
 }
+
+/* ── cohesion pass ─────────────────────────────────────────────────────
+   Final layer: one graphite material system across library chrome,
+   sidebar, app details, cards, controls, and feed panels. */
+
+:where(:root) {
+  --umi-cohesive-shell:
+    var(--umi-noise),
+    linear-gradient(180deg, #11151a 0%, #07090c 100%);
+  --umi-cohesive-panel:
+    var(--umi-noise),
+    radial-gradient(ellipse at 18% 0%, rgba(255, 103, 0, 0.035), transparent 46%),
+    linear-gradient(180deg, #171b21 0%, #0c0f13 100%);
+  --umi-cohesive-control:
+    var(--umi-noise),
+    linear-gradient(180deg, #232932 0%, #12161b 100%);
+  --umi-cohesive-field:
+    var(--umi-noise),
+    linear-gradient(180deg, #07090c 0%, #030405 100%);
+  --umi-cohesive-active:
+    linear-gradient(90deg, rgba(255, 103, 0, 0.92), rgba(194, 73, 0, 0.48) 48%, rgba(17, 21, 26, 0.86) 100%);
+  --umi-cohesive-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.045),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.46),
+    0 10px 24px rgba(0, 0, 0, 0.34);
+  --umi-cohesive-card-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 12px 28px rgba(0, 0, 0, 0.36);
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode),
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode) body,
+._3fp5y6tdU77MdrCQZt_aS9,
+.ETHkFxrlPF1znTFXFtjtK,
+._2-ns_GqXzymHk0jsXBBWJ1,
+._1DLmEVjfX3d7Ec8CW7vJnt,
+._2Nq6ov7A1hGcHXVOXNt_OE,
+._298_NBin_2wV9a3P1Smj5i,
+._9sPoVBFyE_vE87mnZJ5aB,
+._37s6gm02-LeQnuxiAIuliR,
+._2ZP8eOoQ1-pME4-pF91qSt {
+  background: var(--umi-cohesive-shell) !important;
+  background-color: var(--umi-base) !important;
+  color: var(--umi-fg) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    [class*="Panel"],
+    [class*="panel"],
+    [class*="Content"],
+    [class*="content"],
+    [class*="Section"],
+    [class*="section"],
+    [class*="Card"],
+    [class*="card"],
+    [class*="Shelf"],
+    [class*="shelf"],
+    [class*="Modal"],
+    [class*="Dialog"]
+  ),
+._3scbHORkYB7utTUGfkMCC_,
+._1nTD-C3qRvYp3RSRZSegz3,
+._2eJEJmUJveWN1xIBo6qxQ_,
+._1_cYNJSvS6IXs9vLTEYjy5,
+._1j_gja8bHXjiS-BeSQk8hb,
+._1W34WpqfvufNgueNdZozwC,
+._3DyemX0QGhW2mipZQwVfnS,
+._25f0fX6qbgdB7O_lMrbhCN,
+.S2Fu9HxHCA5MaCLGrN2ib,
+._1UMFnczt69Ka8nOWKMzKJR,
+.UVeN0kaD3zv1feMj_mMw5,
+.NEMXhMlqXOCJwfgWlHXhT,
+._3xi-HLpFVHaakihoqhQ_6C,
+.By7D93oEZkZtBeg23NDoR,
+._3QRf-tp5VddAF00vWY5Gn8,
+._3Sb2o_mQ30IDRh0C72QUUu,
+._1NCHRjqdjqGE3JbG4b0rLF,
+.rvYRfhjWoi57GShuRcAwP,
+.oo2nrd4lEaP0P5bxO355t,
+._2_cRkGdbegoIbiRsy_-I7,
+._282X0J4BtrSF1IXctmOe-X,
+.biTV-8rS2M65imVHU15Nv,
+.oAqlZTgPU37Nb8gBT5eAM {
+  background: var(--umi-cohesive-panel) !important;
+  background-color: var(--umi-base-soft) !important;
+  color: var(--umi-fg) !important;
+  border: 0 !important;
+  border-radius: var(--umi-radius) !important;
+  box-shadow: var(--umi-cohesive-card-shadow) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(
+    button,
+    [role="button"],
+    [class*="Button"],
+    [class*="button"],
+    [class*="Tab"],
+    [class*="tab"],
+    .DialogButton
+  ),
+._3QRmtfHxfqEPXDxBHVjAMJ,
+.YMmXzjieZthpAehitId4Y,
+.YMmXzjieZthpAehitId4M,
+._1wKUEA0cYqeUELXMe3Tp6T,
+.D1bMmHTycpEqG4Sp3VVvH,
+._2U9E5YNMewy5F336yikcMG {
+  background: var(--umi-cohesive-control) !important;
+  background-color: var(--umi-base-mid) !important;
+  color: var(--umi-fg-dim) !important;
+  border: 0 !important;
+  border-radius: var(--umi-radius) !important;
+  box-shadow: var(--umi-cohesive-shadow) !important;
+}
+
+:is(.DesktopUI, .BasicUI)
+  :is(input, textarea, select, [class*="Search"], [class*="search"], [class*="Input"], [class*="input"]),
+._2a1-sPpExCp24Q8dfImB0a {
+  background: var(--umi-cohesive-field) !important;
+  background-color: var(--umi-deep) !important;
+  color: var(--umi-fg) !important;
+  border: 0 !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.045),
+    inset 0 2px 5px rgba(0, 0, 0, 0.58) !important;
+}
+
+._1WdC0YUP8FT0dYWZ-QIVZL,
+._1jkfJdGTyndLlXdB9WkfL3,
+._1Q2q_tQ9_Eq8YdEHNAHS3F,
+._2wBK7MqJSrj6QCxf3357yL,
+._1Q-eMJi4hHWapnM5jkXqg7,
+.P_gQ8X-yCsgXeXpP68KS0,
+._3ugJ_KPVlOd9oeYm-fYC_w,
+._3bWISeqP3H2j6YJnFwVEwu,
+.QCKBqF2k_sRLcXJ5qQIEl,
+._3hW5F3JQJmt0L67hcy_U1V,
+._1UuM8B1MkiPFqJqO5XkYeZ,
+._35iRep_MLGWeAmkLbeny7R {
+  background:
+    linear-gradient(90deg, rgba(255, 103, 0, 0.32), rgba(32, 36, 42, 0.98) 34%, rgba(12, 15, 19, 0.98) 100%) !important;
+  background-color: var(--umi-base-mid) !important;
+  color: var(--umi-fg) !important;
+  border-radius: var(--umi-radius) var(--umi-radius) 0 0 !important;
+  box-shadow:
+    inset 3px 0 0 rgba(255, 103, 0, 0.82),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055),
+    0 8px 20px rgba(0, 0, 0, 0.28) !important;
+}
+
+._1vO6BoiVslZgs1kqDGdUs8,
+[class*="GameListEntryContainer"],
+[role="treeitem"],
+:is(.DesktopUI, .BasicUI)
+  :is([class*="ListItem"], [class*="listitem"], [role="row"], [role="option"]) {
+  background:
+    linear-gradient(180deg, rgba(18, 22, 27, 0.58), rgba(8, 10, 13, 0.54)) !important;
+  color: var(--umi-fg-dim) !important;
+  border: 0 !important;
+  border-radius: var(--umi-radius-sm) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.022),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.34) !important;
+}
+
+._1vO6BoiVslZgs1kqDGdUs8:hover,
+[class*="GameListEntryContainer"]:hover,
+[role="treeitem"]:hover,
+:is(.DesktopUI, .BasicUI)
+  :is([class*="ListItem"], [class*="listitem"], [role="row"], [role="option"]):hover {
+  background:
+    linear-gradient(90deg, rgba(255, 103, 0, 0.18), rgba(23, 28, 34, 0.78)) !important;
+  color: var(--umi-fg) !important;
+  box-shadow:
+    inset 3px 0 0 rgba(255, 103, 0, 0.76),
+    0 5px 14px rgba(0, 0, 0, 0.24) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is([aria-selected="true"], [data-selected="true"], [data-focused="true"], .Selected, .selected, [class*="Selected"], [class*="selected"], [class*="Active"], [class*="active"]),
+._1vO6BoiVslZgs1kqDGdUs8[class*="Selected"],
+._1vO6BoiVslZgs1kqDGdUs8[aria-selected="true"],
+[class*="GameListEntryContainer"][class*="Selected"],
+[class*="GameListEntryContainer"][aria-selected="true"],
+[role="treeitem"][aria-selected="true"] {
+  background: var(--umi-cohesive-active) !important;
+  color: #ffffff !important;
+  border: 0 !important;
+  box-shadow:
+    inset 3px 0 0 #ffb088,
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 8px 22px rgba(255, 103, 0, 0.18) !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.68) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is(a, [class*="Link"], [class*="link"]) {
+  color: var(--umi-fg-dim) !important;
+}
+
+:is(.DesktopUI, .BasicUI, .friendsui-container, .GamepadMode)
+  :is(a:hover, [class*="Link"]:hover, [class*="link"]:hover) {
+  color: var(--umi-accent-hi) !important;
+}
