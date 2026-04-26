@@ -1,5 +1,5 @@
 /* UMI × Steam — friends + chat (.friendsui-container)
-   Ornate / textured aesthetic. webkit.css owns palette + bevels. */
+   Vintage graphite aesthetic. webkit.css owns shared material tokens. */
 
 body, html,
 .friendsui-container,
@@ -8,18 +8,18 @@ body, html,
 [class*="chat_Root"],
 [class*="chat_ChatRoom"],
 [class*="chat_Body"] {
-  background: var(--umi-surface-deep);
+  background: var(--umi-cohesive-shell, var(--umi-surface-deep));
   background-attachment: fixed;
   color: var(--umi-fg);
 }
 
-/* ── friend list panel (dark graphite terminal, matches reference's chat area) ─ */
+/* ── friend list panel ───────────────────────────────────────────────── */
 
 .friendlist,
 [class*="friendlist"] {
-  background: var(--umi-surface-panel);
+  background: var(--umi-cohesive-panel, var(--umi-surface-panel));
   color: var(--umi-fg);
-  box-shadow: var(--border-content);
+  box-shadow: var(--umi-cohesive-card-shadow, var(--border-content));
   border-radius: var(--umi-radius);
   padding: var(--umi-pad-sm);
   margin: var(--umi-gap);
@@ -31,7 +31,7 @@ body, html,
 [class*="friendsui_FriendListItem"] {
   background: transparent;
   color: var(--umi-fg);
-  border: 1px solid transparent;
+  border: 0;
   border-radius: var(--umi-radius-sm);
   padding: 3px 6px;
   margin: 1px 0;
@@ -41,8 +41,8 @@ body, html,
 .friendGroup:hover,
 [class*="friendslist_Friend"]:hover,
 [class*="friendsui_FriendListItem"]:hover {
-  background-color: color-mix(in srgb, var(--umi-accent) 22%, transparent);
-  box-shadow: 0 0 0 1px var(--umi-accent-glow);
+  background: linear-gradient(90deg, rgba(255, 103, 0, 0.18), rgba(23, 28, 34, 0.78));
+  box-shadow: inset 3px 0 0 rgba(255, 103, 0, 0.76);
 }
 
 .friend.selected,
@@ -50,15 +50,14 @@ body, html,
 [class*="friendslist_Friend"][class*="Selected"],
 [class*="friendslist_Friend"][aria-selected="true"] {
   background:
-    var(--umi-noise),
-    linear-gradient(180deg, #ff6700 0%, #7a2600 100%) !important;
+    var(--umi-cohesive-active, linear-gradient(90deg, rgba(255, 103, 0, 0.92), rgba(194, 73, 0, 0.48) 48%, rgba(17, 21, 26, 0.86) 100%)) !important;
   color: var(--umi-cream) !important;
-  border: 1px solid var(--umi-accent-soft) !important;
+  border: 0 !important;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-    0 0 12px var(--umi-accent-glow) !important;
+    inset 3px 0 0 #ffb088,
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 8px 22px rgba(255, 103, 0, 0.18) !important;
 }
 
 /* ── status indicators ────────────────────────────────────────────────── */
@@ -116,10 +115,9 @@ body, html,
 .chatRoomTextChannel[class*="ActiveTextChannel"],
 [class*="chatRoomTextChannel"][class*="Active"] {
   background:
-    var(--umi-noise),
-    linear-gradient(180deg, #ff6700 0%, #7a2600 100%) !important;
+    var(--umi-cohesive-active, linear-gradient(90deg, rgba(255, 103, 0, 0.92), rgba(194, 73, 0, 0.48) 48%, rgba(17, 21, 26, 0.86) 100%)) !important;
   color: var(--umi-cream) !important;
-  border: 1px solid var(--umi-accent-soft) !important;
+  border: 0 !important;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 }
 
@@ -142,9 +140,9 @@ body, html,
 
 [class*="chat_TheirMessage"],
 [class*="chat_chat_message"]:not([class*="my"]) {
-  background: var(--umi-surface-panel) !important;
+  background: var(--umi-cohesive-panel, var(--umi-surface-panel)) !important;
   color: var(--umi-fg) !important;
-  box-shadow: var(--border-content) !important;
+  box-shadow: var(--umi-cohesive-card-shadow, var(--border-content)) !important;
   border: none !important;
   border-radius: var(--umi-radius) !important;
   padding: var(--umi-pad-sm) var(--umi-pad);
@@ -153,8 +151,7 @@ body, html,
 [class*="chat_MyMessage"],
 [class*="chat_chat_message"][class*="my"] {
   background:
-    var(--umi-noise),
-    linear-gradient(180deg, #ff6700 0%, #7a2600 100%) !important;
+    var(--umi-cohesive-active, linear-gradient(90deg, rgba(255, 103, 0, 0.92), rgba(194, 73, 0, 0.48) 48%, rgba(17, 21, 26, 0.86) 100%)) !important;
   color: var(--umi-cream) !important;
   box-shadow: var(--border-button-raised) !important;
   border: none !important;
@@ -168,7 +165,7 @@ body, html,
 [class*="chat_InputContainer"] textarea,
 [class*="chat_InputContainer"] input,
 [class*="ChatRoomTextEntryComposer"] textarea {
-  background: var(--umi-surface-panel) !important;
+  background: var(--umi-cohesive-field, var(--umi-surface-field)) !important;
   color: var(--umi-fg) !important;
   box-shadow: var(--border-field) !important;
   border: none !important;
@@ -190,7 +187,7 @@ body, html,
 
 [class*="friendslist_SearchInput"],
 [class*="friendsui_SearchBox"] input {
-  background: var(--umi-surface-panel) !important;
+  background: var(--umi-cohesive-field, var(--umi-surface-field)) !important;
   color: var(--umi-fg) !important;
   box-shadow: var(--border-field) !important;
   border: none !important;
@@ -203,7 +200,7 @@ body, html,
 .groupName,
 [class*="groupName"],
 [class*="friendGroup"] [class*="header"] {
-  background: var(--umi-surface-mid) !important;
+  background: var(--umi-cohesive-control, var(--umi-surface-mid)) !important;
   color: var(--umi-fg) !important;
   box-shadow: var(--border-button-raised);
   border-radius: var(--umi-radius-sm);

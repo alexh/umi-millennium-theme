@@ -64,13 +64,11 @@
   --umi-gap:          8px;
   --button-min-width: 90px;
 
-  /* ── ORNATE BEVEL SYSTEM ────────────────────────────────────────────
-     These replace win95-themes' flat 2px insets with thick layered
-     shadows that read as "encrusted" / "molded" panels.                 */
+  /* ── graphite depth system ───────────────────────────────────────────
+     These replace stock Steam surfaces with restrained inset highlights,
+     dark drop shadows, and orange only for interaction states.           */
 
-  /* Window/panel: the canonical ornate frame — outer dark halo, inner
-     warm-edge highlight, deep inner shadow for depth. Use on top-level
-     panels (sidebar, main content, dialog).                              */
+  /* Top-level panels: outer dark halo, inner highlight, and depth. */
   --border-window:
     0 0 0 1px var(--umi-deep),
     inset 0 0 0 1px rgba(236, 239, 243, 0.08),
@@ -78,8 +76,7 @@
     inset 0 0 24px rgba(0, 0, 0, 0.62),
     0 14px 32px rgba(0, 0, 0, 0.58);
 
-  /* Content panel inside the chrome frame. Orange inner glow,
-     graphite outer halo.                                                 */
+  /* Content panels inside the chrome frame. */
   --border-content:
     0 0 0 1px var(--umi-deep),
     inset 0 0 0 1px rgba(236, 239, 243, 0.055),
@@ -166,7 +163,7 @@
     );
 
   /* ── pre-baked surface backgrounds (palette + noise + glow) ──────
-     Apply these as `background` on ornate panels; the layers are
+     Apply these as `background` on panels; the layers are
      ordered with noise on top so grain is visible above color washes.   */
 
   --umi-surface-chrome:
@@ -370,7 +367,7 @@ html, body {
     0 0 7px rgba(255, 103, 0, 0.16) !important;
 }
 
-/* ── scrollbars (ornate, beveled) ─────────────────────────────────────── */
+/* ── scrollbars ───────────────────────────────────────────────────────── */
 
 ::-webkit-scrollbar {
   width: 14px;

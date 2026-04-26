@@ -1,48 +1,36 @@
 /* UMI × Steam — main library window (.DesktopUI)
-   Ornate / textured aesthetic. Selectors are ricewind012's verified-good
-   set (kept verbatim); only property values change. webkit.css owns the
-   palette, bevels, surface backgrounds, and radius. */
+   Vintage graphite aesthetic. webkit.css owns palette, material surfaces,
+   shadows, active states, and current Steam hash overrides. */
 
 /* ── titlebar (top window chrome) ─────────────────────────────────────── */
 
 .title-area,
 [class*="title-area"] {
-  background: var(--umi-surface-chrome);
-  background-image: var(--umi-noise),
-    linear-gradient(
-      90deg,
-      var(--color-inactive-caption-bg-start),
-      var(--color-inactive-caption-bg-end)
-    );
-  color: var(--color-inactive-caption-text);
+  background: var(--umi-cohesive-shell, var(--umi-surface-chrome));
+  color: var(--umi-fg);
   height: var(--titlebar-height, 24px);
   padding: 4px 8px;
   display: flex;
   align-items: center;
   font-weight: bold;
   border-radius: var(--umi-radius) var(--umi-radius) 0 0;
-  box-shadow: var(--border-window);
+  box-shadow: var(--umi-cohesive-shadow, var(--border-window));
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 body:focus-within .title-area,
 .title-area:has(:focus-within),
 [class*="title-area"]:has(:focus-within) {
-  background-image: var(--umi-noise),
-    linear-gradient(
-      90deg,
-      var(--color-active-caption-bg-start),
-      var(--color-active-caption-bg-end)
-    );
-  color: var(--color-active-caption-text);
+  background: var(--umi-cohesive-control, var(--umi-surface-chrome));
+  color: var(--umi-fg);
 }
 
 /* min / max / close */
 .title-area-icon,
 [class*="title-area-icon"],
 #TitleBarControls > * {
-  background: var(--umi-surface-mid) !important;
-  box-shadow: var(--border-button-raised) !important;
+  background: var(--umi-cohesive-control, var(--umi-surface-mid)) !important;
+  box-shadow: var(--umi-cohesive-shadow, var(--border-button-raised)) !important;
   color: var(--umi-fg) !important;
   border-radius: var(--umi-radius-sm) !important;
   padding: 2px 6px !important;
@@ -54,7 +42,7 @@ body:focus-within .title-area,
 #TitleBarControls > *:hover {
   background:
     var(--umi-noise),
-    linear-gradient(180deg, var(--umi-base-edge) 0%, var(--umi-base-mid) 100%) !important;
+    linear-gradient(180deg, #2a313a 0%, #14181e 100%) !important;
 }
 
 .title-area-icon:active,
@@ -72,32 +60,32 @@ body:focus-within .title-area,
 [class*="library_HomeRoot"],
 .contenttransition,
 [class*="contenttransition"] {
-  background: var(--umi-surface-deep);
+  background: var(--umi-cohesive-shell, var(--umi-surface-deep));
   background-attachment: fixed;
   color: var(--umi-fg);
 }
 
-/* sidebar / left rail — deepest tone (matches reference's cosmic-dark sidebar) */
+/* sidebar / left rail */
 [class*="library_LeftMenu"],
 [class*="library_LibraryMenu"],
 [class*="library_LeftRail"],
 [class*="leftrail"] {
-  background: var(--umi-surface-deep);
-  box-shadow: var(--border-window);
+  background: var(--umi-cohesive-shell, var(--umi-surface-deep));
+  box-shadow: var(--umi-cohesive-shadow, var(--border-window));
   border-radius: var(--umi-radius);
   padding: var(--umi-pad-sm);
   margin: var(--umi-gap);
 }
 
-/* main content panel — dark graphite terminal (matches reference's chat area) */
+/* main content panel */
 [class*="library_MainContent"],
 [class*="library_HeroDisplay"],
 [class*="appdetailsmain"],
 .simplepanel,
 [class*="simplepanel"] {
-  background: var(--umi-surface-panel);
+  background: var(--umi-cohesive-panel, var(--umi-surface-panel));
   color: var(--umi-fg);
-  box-shadow: var(--border-content);
+  box-shadow: var(--umi-cohesive-card-shadow, var(--border-content));
   border-radius: var(--umi-radius);
   margin: var(--umi-gap);
   padding: var(--umi-pad);
@@ -112,7 +100,7 @@ body:focus-within .title-area,
 .listbox-item {
   background: transparent;
   color: inherit;
-  border: 1px solid transparent;
+  border: 0;
   border-radius: var(--umi-radius-sm);
   padding: 4px 8px;
   margin: 1px 2px;
@@ -123,8 +111,8 @@ body:focus-within .title-area,
 [class*="library_GameListItem"]:hover,
 [class*="library_CollectionItem"]:hover,
 [class*="gameslistitems_ListItem"]:hover {
-  background-color: color-mix(in srgb, var(--umi-accent) 22%, transparent);
-  box-shadow: 0 0 0 1px var(--umi-accent-glow);
+  background: linear-gradient(90deg, rgba(255, 103, 0, 0.18), rgba(23, 28, 34, 0.78));
+  box-shadow: inset 3px 0 0 rgba(255, 103, 0, 0.76);
 }
 
 [class*="library_LibraryNavLink"][aria-selected="true"],
@@ -132,15 +120,14 @@ body:focus-within .title-area,
 [class*="Selected"]:not(button):not([role="button"]):not([role="tab"]),
 .listbox-item[aria-selected="true"] {
   background:
-    var(--umi-noise),
-    linear-gradient(180deg, #ff6700 0%, #7a2600 100%) !important;
+    var(--umi-cohesive-active, linear-gradient(90deg, rgba(255, 103, 0, 0.92), rgba(194, 73, 0, 0.48) 48%, rgba(17, 21, 26, 0.86) 100%)) !important;
   color: var(--umi-cream) !important;
-  border: 1px solid var(--umi-accent-soft) !important;
+  border: 0 !important;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.4),
-    0 0 12px var(--umi-accent-glow);
+    inset 3px 0 0 #ffb088,
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 8px 22px rgba(255, 103, 0, 0.18);
 }
 
 /* ── primary tabs — hazard-tape stripe (UMI signature) on selected ────── */
@@ -149,7 +136,7 @@ body:focus-within .title-area,
 [class*="library_PrimaryTab"][aria-selected="true"],
 [class*="TabSelected"],
 [role="tab"][aria-selected="true"] {
-  background-image: var(--umi-hazard) !important;
+  background: var(--umi-cohesive-active, var(--umi-hazard)) !important;
   color: var(--umi-cream) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
   box-shadow: var(--border-button-sunken);
@@ -159,7 +146,7 @@ body:focus-within .title-area,
 }
 
 [role="tab"]:not([aria-selected="true"]) {
-  background: var(--umi-surface-mid);
+  background: var(--umi-cohesive-control, var(--umi-surface-mid));
   color: var(--umi-fg);
   box-shadow: var(--border-button-raised);
   border-radius: var(--umi-radius) var(--umi-radius) 0 0;
@@ -170,10 +157,10 @@ body:focus-within .title-area,
 [role="tab"]:not([aria-selected="true"]):hover {
   background:
     var(--umi-noise),
-    linear-gradient(180deg, var(--umi-base-edge) 0%, var(--umi-base-mid) 100%);
+    linear-gradient(180deg, #2a313a 0%, #14181e 100%);
 }
 
-/* ── buttons — ornate raised → sunken on press ────────────────────────── */
+/* ── buttons — raised → sunken on press ──────────────────────────────── */
 
 #Button,
 [class*="DialogButton"],
@@ -183,7 +170,7 @@ body:focus-within .title-area,
 .btnv6_white_transparent,
 .btnv6_grey_white_innerfade {
   appearance: none !important;
-  background: var(--umi-surface-mid) !important;
+  background: var(--umi-cohesive-control, var(--umi-surface-mid)) !important;
   background-image:
     var(--umi-noise),
     linear-gradient(180deg, var(--umi-base-mid) 0%, var(--umi-base-soft) 100%) !important;
@@ -249,8 +236,8 @@ button[class*="Primary"]:active {
 [class*="ModalPosition"],
 .FullModalOverlay,
 [class*="FullModalOverlay"] {
-  background: var(--umi-surface-chrome) !important;
-  box-shadow: var(--border-window) !important;
+  background: var(--umi-cohesive-shell, var(--umi-surface-chrome)) !important;
+  box-shadow: var(--umi-cohesive-shadow, var(--border-window)) !important;
   border-radius: var(--umi-radius) !important;
   padding: var(--umi-pad-sm);
 }
@@ -259,9 +246,9 @@ button[class*="Primary"]:active {
 [class*="DialogBody"],
 .DialogContent,
 [class*="DialogContent"] {
-  background: var(--umi-surface-panel) !important;
+  background: var(--umi-cohesive-panel, var(--umi-surface-panel)) !important;
   color: var(--umi-fg) !important;
-  box-shadow: var(--border-content) !important;
+  box-shadow: var(--umi-cohesive-card-shadow, var(--border-content)) !important;
   border-radius: var(--umi-radius) !important;
   padding: var(--umi-pad) !important;
 }
@@ -297,7 +284,7 @@ input[class*="basicTextInput"],
 input[type="text"],
 input[type="search"],
 textarea {
-  background: var(--umi-surface-panel) !important;
+  background: var(--umi-cohesive-field, var(--umi-surface-field)) !important;
   color: var(--umi-fg) !important;
   box-shadow: var(--border-field) !important;
   border: none !important;

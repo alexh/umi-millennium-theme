@@ -1,12 +1,12 @@
 /* UMI × Steam — Big Picture mode (.fullheight)
-   Ornate aesthetic. Focus state is the load-bearing gamepad affordance,
-   so it gets the full ornate orange glow ring. */
+   Vintage graphite aesthetic. Focus state is the load-bearing gamepad
+   affordance, so it gets the orange glow ring. */
 
 body, html,
 [class*="basicrootcontainer"],
 [class*="bigpicture_Root"],
 [class*="rootRouter"] {
-  background: var(--umi-surface-deep);
+  background: var(--umi-cohesive-shell, var(--umi-surface-deep));
   background-attachment: fixed;
   color: var(--umi-fg);
 }
@@ -16,8 +16,8 @@ body, html,
 [class*="library_GameTile"],
 [class*="bigpicture_Tile"],
 [class*="basicgrid_Tile"] {
-  background: var(--umi-surface-panel);
-  box-shadow: var(--border-button-raised);
+  background: var(--umi-cohesive-panel, var(--umi-surface-panel));
+  box-shadow: var(--umi-cohesive-card-shadow, var(--border-button-raised));
   border-radius: var(--umi-radius);
   overflow: hidden;
   transition: transform 120ms ease, box-shadow 120ms ease;
@@ -47,7 +47,7 @@ body, html,
 
 [class*="bigpicture_NavTab"][class*="Selected"],
 [class*="bigpicture_NavTab"][data-selected="true"] {
-  background-image: var(--umi-hazard) !important;
+  background: var(--umi-cohesive-active, var(--umi-hazard)) !important;
   color: var(--umi-cream) !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
   box-shadow: var(--border-button-sunken);
@@ -57,7 +57,7 @@ body, html,
 }
 
 [class*="bigpicture_NavTab"]:not([data-selected="true"]) {
-  background: var(--umi-surface-mid);
+  background: var(--umi-cohesive-control, var(--umi-surface-mid));
   color: var(--umi-fg);
   box-shadow: var(--border-button-raised);
   border-radius: var(--umi-radius);
@@ -67,7 +67,7 @@ body, html,
 [class*="bigpicture_NavTab"]:not([data-selected="true"]):hover {
   background:
     var(--umi-noise),
-    linear-gradient(180deg, var(--umi-base-edge) 0%, var(--umi-base-mid) 100%);
+    linear-gradient(180deg, #2a313a 0%, #14181e 100%);
 }
 
 /* ── primary action button ────────────────────────────────────────────── */
@@ -94,7 +94,7 @@ button[class*="Primary"]:active {
 
 [class*="progressbar"],
 progress {
-  background: var(--umi-surface-deep) !important;
+  background: var(--umi-cohesive-field, var(--umi-surface-field)) !important;
   box-shadow: var(--border-field) !important;
   border-radius: var(--umi-radius-sm) !important;
   height: 14px;
@@ -119,7 +119,7 @@ progress::-webkit-progress-value {
 
 [class*="ModalDialogPopup"],
 [class*="FullModalOverlay"] {
-  background: var(--umi-surface-chrome) !important;
-  box-shadow: var(--border-window) !important;
+  background: var(--umi-cohesive-shell, var(--umi-surface-chrome)) !important;
+  box-shadow: var(--umi-cohesive-shadow, var(--border-window)) !important;
   border-radius: var(--umi-radius) !important;
 }

@@ -26,4 +26,4 @@ Dark, Vintage, Industrial, Textured, Ornate
 
 ### Notes
 
-The theme uses Millennium's default theme file structure with `UseDefaultPatches: true`.
+The theme uses explicit Millennium `Patches` entries with `MatchRegexString` and `TargetCss`/`TargetJs`. `webkit.css` is injected globally, with per-window CSS for Library, Friends, and Big Picture.
