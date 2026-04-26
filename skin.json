@@ -1,0 +1,14 @@
+{
+  "name": "UMI",
+  "version": "0.3.1",
+  "description": "Ornate industrial UMI theme for Steam — textured warm-dark chrome, cream content panels, hazard-orange activation, and layered bevels.",
+  "author": "Alex Haynes",
+  "header_image": "assets/header.svg",
+  "splash_image": "assets/splash.svg",
+  "tags": ["Dark", "Industrial", "Textured", "Ornate"],
+  "github": {
+    "owner": "alexh",
+    "repo_name": "umi-millennium-theme"
+  },
+  "UseDefaultPatches": true
+}

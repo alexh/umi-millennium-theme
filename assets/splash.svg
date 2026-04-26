@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">UMI Steam Theme Splash</title>
+  <desc id="desc">Full-size UMI theme splash image for Steam Homebrew.</desc>
+  <defs>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" seed="11"/>
+      <feColorMatrix values="0 0 0 0 0.08 0 0 0 0 0.04 0 0 0 0 0.015 0 0 0 0.25 0"/>
+    </filter>
+    <radialGradient id="glow" cx="28%" cy="20%" r="70%">
+      <stop offset="0" stop-color="#ff6700" stop-opacity="0.32"/>
+      <stop offset="0.42" stop-color="#2a1c12" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#14090a" stop-opacity="1"/>
+    </radialGradient>
+    <pattern id="hazard" width="32" height="32" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="16" height="32" fill="#C94A00"/>
+      <rect x="16" width="16" height="32" fill="#FF8A4A"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="#14090a"/>
+  <rect width="1920" height="1080" fill="url(#glow)"/>
+  <rect width="1920" height="1080" filter="url(#grain)" opacity="0.85"/>
+  <rect x="190" y="155" width="1540" height="770" rx="30" fill="#1a0e08" stroke="#5a4a3a" stroke-width="4"/>
+  <rect x="236" y="214" width="1448" height="78" rx="15" fill="url(#hazard)"/>
+  <rect x="236" y="337" width="392" height="500" rx="18" fill="#14090a" stroke="#5a4a3a" stroke-width="3"/>
+  <rect x="684" y="337" width="1000" height="500" rx="18" fill="#fbf1c7" stroke="#5a4a3a" stroke-width="3"/>
+  <text x="278" y="268" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700">UMI</text>
+  <text x="736" y="500" fill="#2a1c12" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="700">Ornate Industrial Steam</text>
+  <text x="740" y="584" fill="#ff6700" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700">warm-dark chrome / cream panels / hazard activation</text>
+</svg>

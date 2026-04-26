@@ -1,0 +1,289 @@
+/* UMI × Steam — globally injected (every Steam window).
+   Ornate / organic / textured aesthetic, ported from the codex chat-app
+   reference. Heavy layered shadows replace Win95-flat 2px bevels. SVG noise
+   overlay gives surfaces an industrial grain. Per-region tonal palette:
+   warm-dark base for chrome, cream for content, orange for activation. */
+
+:where(:root) {
+  /* ── tonal palette (three depth tones + cream content) ─────────────── */
+  --umi-deep:        #14090a;   /* deepest chrome (around bezels)        */
+  --umi-base:        #1a0e08;   /* sidebar / outer chrome                */
+  --umi-base-soft:   #2a1c12;   /* primary chrome (panels, buttons)      */
+  --umi-base-mid:    #3c3836;   /* warm grey structure                   */
+  --umi-base-edge:   #5a4a3a;   /* raised edge highlight                 */
+  --umi-cream:       #fbf1c7;   /* content surface                       */
+  --umi-cream-dim:   #d5c4a1;   /* secondary content text                */
+  --umi-cream-mute:  #a89984;   /* muted content text                    */
+  --umi-fg:          #fbf1c7;   /* primary text on chrome                */
+  --umi-fg-dim:      rgba(251, 241, 199, 0.55);
+  --umi-fg-mute:     rgba(251, 241, 199, 0.30);
+  --umi-text-dark:   #2a1c12;   /* text on cream                         */
+
+  /* ── activation accents ────────────────────────────────────────────── */
+  --umi-accent:      #FF6700;   /* primary activation orange             */
+  --umi-accent-2:    #FF4500;   /* secondary / hover                     */
+  --umi-accent-soft: #C94A00;   /* hazard stripe dark                    */
+  --umi-accent-hi:   #FF8A4A;   /* hazard stripe light                   */
+  --umi-accent-glow: rgba(255, 103, 0, 0.35);
+
+  /* ── win95-themes compat (selectors elsewhere reference these) ────── */
+  --color-button-face:        var(--umi-base-soft);
+  --color-button-text:        var(--umi-fg);
+  --color-button-highlight:   var(--umi-base-edge);
+  --color-button-light:       var(--umi-base-mid);
+  --color-button-shadow:      var(--umi-deep);
+  --color-button-shadow-dark: #000000;
+  --color-window:             var(--umi-cream);
+  --color-window-text:        var(--umi-text-dark);
+  --color-active-caption-bg-start: var(--umi-accent);
+  --color-active-caption-bg-end:   var(--umi-accent-2);
+  --color-active-caption-text:     var(--umi-cream);
+  --color-inactive-caption-bg-start: var(--umi-base-mid);
+  --color-inactive-caption-bg-end:   var(--umi-base-soft);
+  --color-inactive-caption-text:     var(--umi-cream-mute);
+  --color-highlight:        var(--umi-accent);
+  --color-highlight-text:   var(--umi-cream);
+  --color-highlight-border: var(--umi-accent-hi);
+  --color-tooltip:          var(--umi-cream);
+  --color-tooltip-text:     var(--umi-text-dark);
+  --color-gray-text:        var(--umi-cream-mute);
+  --color-link:             var(--umi-accent);
+
+  /* ── typography ────────────────────────────────────────────────────── */
+  --text-ui-font: inherit;
+  --text-ui-size: inherit;
+  --text-line: normal;
+  --text-ui: inherit;
+  --text-mono-font: monospace;
+  --text-mono-size: inherit;
+
+  /* ── dimensions ────────────────────────────────────────────────────── */
+  --umi-radius:       6px;     /* universal corner radius                */
+  --umi-radius-sm:    3px;     /* small controls (status pills, dots)    */
+  --umi-pad:          10px;
+  --umi-pad-sm:       5px;
+  --umi-gap:          8px;
+  --button-min-width: 90px;
+
+  /* ── ORNATE BEVEL SYSTEM ────────────────────────────────────────────
+     These replace win95-themes' flat 2px insets with thick layered
+     shadows that read as "encrusted" / "molded" panels.                 */
+
+  /* Window/panel: the canonical ornate frame — outer dark halo, inner
+     warm-edge highlight, deep inner shadow for depth. Use on top-level
+     panels (sidebar, main content, dialog).                              */
+  --border-window:
+    0 0 0 1px var(--umi-deep),
+    inset 0 0 0 1px rgba(90, 74, 58, 0.6),
+    inset 0 1px 0 rgba(251, 241, 199, 0.08),
+    inset 0 0 16px rgba(0, 0, 0, 0.55),
+    0 6px 18px rgba(0, 0, 0, 0.55);
+
+  /* Cream content panel inside the chrome frame. Lighter inner glow,
+     warm-dark outer halo.                                                */
+  --border-content:
+    0 0 0 1px var(--umi-deep),
+    inset 0 0 0 1px rgba(168, 153, 132, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -2px 4px rgba(60, 56, 54, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+
+  /* Raised button: warm rim highlight + soft drop shadow. */
+  --border-button-raised:
+    0 0 0 1px var(--umi-deep),
+    inset 0 1px 0 rgba(251, 241, 199, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.45),
+    0 2px 4px rgba(0, 0, 0, 0.45);
+
+  /* Sunken button (pressed): inverted — dark rim on top, light on bottom,
+     deep inner shadow.                                                   */
+  --border-button-sunken:
+    0 0 0 1px var(--umi-deep),
+    inset 0 2px 4px rgba(0, 0, 0, 0.6),
+    inset 0 -1px 0 rgba(251, 241, 199, 0.08);
+
+  /* Focused button: hazard glow ring around the raised state. */
+  --border-button-focused:
+    0 0 0 1px var(--umi-deep),
+    0 0 0 3px var(--umi-accent),
+    0 0 0 4px var(--umi-deep),
+    inset 0 1px 0 rgba(251, 241, 199, 0.2),
+    0 0 16px var(--umi-accent-glow);
+
+  /* Field (input): deep inset, sharp inner edge. */
+  --border-field:
+    0 0 0 1px var(--umi-deep),
+    inset 0 0 0 1px rgba(168, 153, 132, 0.35),
+    inset 0 2px 4px rgba(0, 0, 0, 0.35);
+
+  /* Statusbar: subtle inset. */
+  --border-statusbar:
+    inset 0 1px 0 rgba(0, 0, 0, 0.35),
+    inset 0 -1px 0 rgba(251, 241, 199, 0.08);
+
+  /* Win95-themes legacy var aliases — kept so existing selectors
+     elsewhere keep resolving without rewrites.                           */
+  --border-button-raised-flat: var(--border-button-raised);
+
+  /* ── UMI hazard-tape (the signature accent gradient) ─────────────── */
+  --umi-hazard: repeating-linear-gradient(
+    45deg,
+    var(--umi-accent-soft) 0px,
+    var(--umi-accent-soft) 4px,
+    var(--umi-accent-hi)   4px,
+    var(--umi-accent-hi)   8px
+  );
+
+  --umi-hazard-tight: repeating-linear-gradient(
+    45deg,
+    var(--umi-accent-soft) 0px,
+    var(--umi-accent-soft) 2px,
+    var(--umi-accent-hi)   2px,
+    var(--umi-accent-hi)   4px
+  );
+
+  /* ── SVG noise filter (organic grain on chrome surfaces) ──────────
+     Inline data URL so no external asset is needed.                     */
+  --umi-noise: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='7' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.18 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+
+  --umi-noise-light: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2' seed='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.16  0 0 0 0 0.10  0 0 0 0 0.07  0 0 0 0.10 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+
+  /* ── pre-baked surface backgrounds (palette + noise + glow) ──────
+     Apply these as `background` on ornate panels; the layers are
+     ordered with noise on top so grain is visible above color washes.   */
+
+  --umi-surface-chrome:
+    var(--umi-noise),
+    radial-gradient(ellipse at 20% 10%, rgba(255, 103, 0, 0.06), transparent 55%),
+    radial-gradient(ellipse at 80% 90%, rgba(0, 0, 0, 0.4), transparent 50%),
+    linear-gradient(180deg, var(--umi-base-soft) 0%, var(--umi-base) 100%);
+
+  --umi-surface-deep:
+    var(--umi-noise),
+    radial-gradient(ellipse at 50% 0%, rgba(255, 103, 0, 0.05), transparent 60%),
+    linear-gradient(180deg, var(--umi-base) 0%, var(--umi-deep) 100%);
+
+  --umi-surface-cream:
+    var(--umi-noise-light),
+    radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.4), transparent 50%),
+    linear-gradient(180deg, #fdf6d6 0%, #f0e2b0 100%);
+
+  --umi-surface-mid:
+    var(--umi-noise),
+    linear-gradient(180deg, var(--umi-base-mid) 0%, var(--umi-base-soft) 100%);
+
+  --checkerboard: repeating-conic-gradient(
+    var(--umi-cream) 0% 25%,
+    var(--umi-base-soft) 0% 50%
+  ) 0% 0% / 4px 4px;
+
+  color-scheme: dark;
+}
+
+/* ── globals ──────────────────────────────────────────────────────────── */
+
+html, body {
+  background: var(--umi-surface-deep);
+  background-attachment: fixed;
+  color: var(--umi-fg);
+}
+
+::selection {
+  background-color: var(--umi-accent);
+  color: var(--umi-cream);
+}
+
+/* ── scrollbars (ornate, beveled) ─────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--umi-surface-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--umi-surface-mid);
+  box-shadow: var(--border-button-raised);
+  border-radius: var(--umi-radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:
+    var(--umi-noise),
+    linear-gradient(180deg, var(--umi-accent) 0%, var(--umi-accent-2) 100%);
+}
+
+::-webkit-scrollbar-thumb:active {
+  box-shadow: var(--border-button-sunken);
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--umi-deep);
+}
+
+/* ── generic form controls (safety net) ───────────────────────────────── */
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  appearance: none;
+  background: var(--umi-surface-mid);
+  color: var(--umi-fg);
+  box-shadow: var(--border-button-raised);
+  border: none;
+  border-radius: var(--umi-radius);
+  padding: var(--umi-pad-sm) var(--umi-pad);
+  min-width: var(--button-min-width);
+  cursor: default;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  background:
+    var(--umi-noise),
+    linear-gradient(180deg, var(--umi-base-edge) 0%, var(--umi-base-mid) 100%);
+}
+
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active,
+input[type="reset"]:active {
+  box-shadow: var(--border-button-sunken);
+  background:
+    var(--umi-noise),
+    linear-gradient(180deg, var(--umi-base) 0%, var(--umi-deep) 100%);
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  box-shadow: var(--border-button-focused);
+  outline: none;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  appearance: none;
+  background: var(--umi-surface-cream);
+  color: var(--umi-text-dark);
+  box-shadow: var(--border-field);
+  border: none;
+  border-radius: var(--umi-radius);
+  padding: var(--umi-pad-sm) var(--umi-pad);
+}

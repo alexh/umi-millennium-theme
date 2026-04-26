@@ -1,0 +1,125 @@
+/* UMI × Steam — Big Picture mode (.fullheight)
+   Ornate aesthetic. Focus state is the load-bearing gamepad affordance,
+   so it gets the full ornate orange glow ring. */
+
+body, html,
+[class*="basicrootcontainer"],
+[class*="bigpicture_Root"],
+[class*="rootRouter"] {
+  background: var(--umi-surface-deep);
+  background-attachment: fixed;
+  color: var(--umi-fg);
+}
+
+/* ── tile grid (game library cards) — cream surface with raised bevel ── */
+
+[class*="library_GameTile"],
+[class*="bigpicture_Tile"],
+[class*="basicgrid_Tile"] {
+  background: var(--umi-surface-cream);
+  box-shadow: var(--border-button-raised);
+  border-radius: var(--umi-radius);
+  overflow: hidden;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+[class*="library_GameTile"]:hover,
+[class*="bigpicture_Tile"]:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    var(--border-button-raised),
+    0 0 16px var(--umi-accent-glow);
+}
+
+/* ── focus ring (gamepad navigation lands here — orange glow halo) ────── */
+
+[class*="basicgrid_Focused"],
+[class*="bigpicture_Focused"],
+[class*="library_GameTile"][class*="Focused"],
+*[data-focused="true"],
+*:focus-visible {
+  box-shadow: var(--border-button-focused) !important;
+  outline: none !important;
+  z-index: 10;
+}
+
+/* ── BPM nav rail tabs ────────────────────────────────────────────────── */
+
+[class*="bigpicture_NavTab"][class*="Selected"],
+[class*="bigpicture_NavTab"][data-selected="true"] {
+  background-image: var(--umi-hazard) !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+  box-shadow: var(--border-button-sunken);
+  border-radius: var(--umi-radius);
+  font-weight: bold;
+  padding: 8px 14px;
+}
+
+[class*="bigpicture_NavTab"]:not([data-selected="true"]) {
+  background: var(--umi-surface-mid);
+  color: var(--umi-fg);
+  box-shadow: var(--border-button-raised);
+  border-radius: var(--umi-radius);
+  padding: 8px 14px;
+}
+
+[class*="bigpicture_NavTab"]:not([data-selected="true"]):hover {
+  background:
+    var(--umi-noise),
+    linear-gradient(180deg, var(--umi-base-edge) 0%, var(--umi-base-mid) 100%);
+}
+
+/* ── primary action button ────────────────────────────────────────────── */
+
+button[class*="Primary"],
+[class*="bigpicture_PrimaryButton"] {
+  background-image: var(--umi-hazard) !important;
+  background-color: var(--umi-accent) !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+  box-shadow: var(--border-button-raised) !important;
+  border: none !important;
+  border-radius: var(--umi-radius) !important;
+  font-weight: bold;
+  padding: var(--umi-pad-sm) var(--umi-pad);
+}
+
+button[class*="Primary"]:active {
+  box-shadow: var(--border-button-sunken) !important;
+  filter: brightness(0.85);
+}
+
+/* ── progress bars (segmented hazard fill) ────────────────────────────── */
+
+[class*="progressbar"],
+progress {
+  background: var(--umi-surface-deep) !important;
+  box-shadow: var(--border-field) !important;
+  border-radius: var(--umi-radius-sm) !important;
+  height: 14px;
+  padding: 2px;
+}
+
+[class*="progressbar"] [class*="fill"],
+progress::-webkit-progress-value {
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      var(--umi-accent) 0 8px,
+      var(--umi-accent-2) 8px 9px,
+      transparent 9px 11px
+    ) !important;
+  background-color: transparent !important;
+  border-radius: var(--umi-radius-sm) !important;
+  box-shadow: 0 0 8px var(--umi-accent-glow);
+}
+
+/* ── modal overlays ───────────────────────────────────────────────────── */
+
+[class*="ModalDialogPopup"],
+[class*="FullModalOverlay"] {
+  background: var(--umi-surface-chrome) !important;
+  box-shadow: var(--border-window) !important;
+  border-radius: var(--umi-radius) !important;
+}
